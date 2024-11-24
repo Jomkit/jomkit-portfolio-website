@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
+import Header from './Header.astro'
 ---
 
 <!doctype html>
@@ -16,7 +17,8 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="bg-zinc-300">
+		<Header />
 		<slot />
 	</body>
 </html>
@@ -34,17 +36,18 @@ const { title } = Astro.props;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151a;
+		/* background: #13151a; */
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+
+	h1 {
+		@apply text-6xl font-bold;
+	}
+
+	h2 {
+		@apply text-3xl font-bold;
+	}
+
+	p {
+		@apply text-xl;
 	}
 </style>
