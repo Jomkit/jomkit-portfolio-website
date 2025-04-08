@@ -1,0 +1,35 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const allPosts = Object.values(import.meta.glob('./*.md', { eager: true }));
+---
+
+<Layout title="Blog">
+    <h1 class="mt-6">Blog</h1>
+    <div class="flex flex-col w-2/3 gap-y-4 pb-8">
+        <div id="blurb" class="m-auto bg-indigo-800 text-white p-6 rounded">
+            <h2>Welcome to my blog!</h2>
+            <p>Here I write about my experiences and thoughts on various topics, including software development, technology, and personal projects. I hope you find something interesting!</p>
+        </div>
+        <hr />
+        <div class="w-full m-auto p-10 bg-slate-300 space-y-4">
+            <h2 class="text-3xl font-bold">All Posts</h2>
+            <hr class="border-black" />
+            <ul class="space-y-6">
+            {allPosts.map((post: any) => 
+                <li class="flex flex-row justify-between">
+                    <a href={post.url} class="text-blue-500 hover:underline">{post.frontmatter.title}</a>
+                    <span>{post.frontmatter.pubDate}</span>
+                </li>
+            )}
+            </ul>
+        </div>
+    </div>
+
+
+</Layout>
+
+<style>
+    h2 {
+        text-align: center;
+    }
+</style>
