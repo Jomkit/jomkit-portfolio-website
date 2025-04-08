@@ -1,13 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import selfiePastel from '../images/selfiePastel.jpg';
+import { Image } from 'astro:assets';
 ---
 
 <Layout title="Welcome to Astro.">
 	<main class="flex flex-col items-center space-y-6">
 		<h1 class="mt-6">Jomkit Jujaroen</h1>
-		<div class="flex flex-col gap-y-4 py-10">
-			<h3>A <span class="font-bold">full-stack software engineer</span> with a global perspective</h3>
-			<p class="italic">Clean, optimized websites handcrafted to your specific needs</p>
+		<div class="flex flex-col gap-y-4 pb-8">
+			<Image src={selfiePastel} alt="Picture of Jomkit Jujaroen" width={400} class="border-4 border-black mx-auto" />
+			<div id="blurb" class="w-2/3 m-auto">
+				<h3>A <span class="font-bold">full-stack software engineer</span> with a global perspective</h3>
+				<p>Thanks for visiting my website! I'm a developer who loves turning challenges into elegant solutions. Take a look at my projects and let's build something awesome. <a class="bg-slate-500 px-1 rounded-lg text-white hover:border-2 border-black" href="/about">About Me</a></p>
+			</div>
+			<!-- <p class="italic">Clean, optimized websites handcrafted to your specific needs</p> -->
 		</div>
 
 		<section id="projects" class="flex flex-col bg-indigo-800 text-white">
