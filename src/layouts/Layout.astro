@@ -17,16 +17,17 @@ import Header from './Header.astro'
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-zinc-300">
-		<Header />
+	<body class="bg-[--primary-color]">
+		<Header client:load />
 		<slot />
 	</body>
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
+		--primary-color: white;
+		--secondary-color: #007BFF;
+		--dark-color: #333333;
+
 		--accent-gradient: linear-gradient(
 			45deg,
 			rgb(var(--accent)),
@@ -45,6 +46,14 @@ import Header from './Header.astro'
 
 	h2 {
 		@apply text-3xl font-bold;
+	}
+
+	h3 {
+		@apply text-3xl;
+	}
+
+	section {
+		@apply w-3/4 px-16 py-10 space-y-6;
 	}
 
 	p {

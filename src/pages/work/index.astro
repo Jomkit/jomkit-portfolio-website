@@ -1,0 +1,51 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import risatech from '../../images/risatech-welcome.png';
+import fab from '../../images/fab.png';
+---
+
+<Layout title="Work">
+    <main class="flex flex-col items-center gap-y-6">
+        <h1 class="mt-6">Work</h1>
+
+        <section class="bg-indigo-800 text-white">
+            <h2>Work Experience</h2>
+            
+            <div class="flex">
+                <div class="w-1/2">
+                    <h3>full-Stack Software Engineer</h3>
+                    <p><a href="https://risatech.ai/">risatech.ai</a></p>
+                    <p>At risatech.ai I had unique opportunity of being part of a rapidly developing start-up environment. I was in charge of adding several new features to our flagship app, risatech.ai, an hospitality app that leveraged AI agents to empower hotel owners and hotel managers to save time, save money, and increase value.</p>
+                </div>
+                <div class="w-1/2">
+                    <Image src={risatech} alt="risatech.ai welcome page" class="rounded border-2 border-white" />
+                </div>
+            </div>
+
+            <hr class="border-t-2 border-black my-4 w-full" />
+            
+            <div class="flex">
+                <div class="w-1/2">
+                    <h3>Full-Stack Web Developer</h3>
+                    <p><a href="https://foxallenbindery.com/">Fox Allen Bindery</a></p>
+                    <p>As a freelance web developer, I worked closely with this client to build a personalized portfolio website to showcase their expertise and skill in book binding, as well as giving their customers a way to interact and reach out to them for classes and comissions.</p>
+                </div>
+                <div class="w-1/2">
+                    <Image src={fab} alt="risatech.ai welcome page" class="rounded border-2 border-white" />
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Personal Projects</h2>
+        </section>
+
+    </main>
+</Layout>
+
+<style>
+    a:hover {
+        @apply font-semibold underline italic;
+    }
+</style>
