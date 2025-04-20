@@ -4,7 +4,13 @@ Hello, thanks for stopping by the github repository for my portfolio website. I 
 
 This website features most of the usual amenities: landing page, works and services, blog, about, and contact pages. It is continuously a work in progress, but what better way to showcase my skills as a web developer than writing my own living portfolio website?
 
-## 🚀 Project Structure
+## Icons
+
+This project uses [astro-icon](https://www.astroicon.dev/getting-started/) package to simplify use of icons, and the [BoxIcons](https://icones.js.org/collection/bx) set by Atisa. 
+
+To add more icons go to use the `Icon` component and set the `name` attribute to the desired icon, referencing the icon set from the following link: https://icones.js.org/collection/bx 
+
+## 🚀 Project Structure (Astro bootstrapped)
 
 Inside of your Astro project, you'll see the following folders and files:
 
