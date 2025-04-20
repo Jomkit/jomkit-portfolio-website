@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 const email = "j.jujaroen96@gmail.com";
 const linkedInUrl = "https://www.linkedin.com/in/jomkit-jujaroen/";
-const github = "https://github.com/Jomkit"
+const github = "https://github.com/Jomkit";
 ---
 <Layout title="Contact">
         <h1 class="mt-6">Contact</h1>
@@ -12,8 +12,8 @@ const github = "https://github.com/Jomkit"
                 <p>If you have any questions or would like to get in touch, feel free to reach out to me via email or LinkedIn.</p>
                 <hr />
                 <p>Email: {email}</p>
-                <p>LinkedIn: <a class="hover:underline" href={linkedInUrl} target="_blank">{linkedInUrl}</a></p>
-                <p>Github: <a class="hover:underline" href={github} target="_blank">{github}</a></p>
+                <p>LinkedIn: <a class="hover:underline" href={linkedInUrl} target="_blank" rel="noopener noreferrer">{linkedInUrl}</a></p>
+                <p>Github: <a class="hover:underline" href={github} target="_blank" rel="noopener noreferrer">{github}</a></p>
             </div>
         </div>
 </Layout>

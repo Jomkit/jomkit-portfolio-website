@@ -1,10 +1,13 @@
 ---
 import { Icon } from 'astro-icon/components';
+
+const linkedInUrl = "https://www.linkedin.com/in/jomkit-jujaroen/";
+const github = "https://github.com/Jomkit";
 ---
-<footer class="flex flex-col items-center w-full bg-gray-800 text-white text-center mt-auto p-4">
-    <p class="text-sm lg:text-lg">Copyright &#169; 2025 | Powered by AstroJS | Website Design by Jomkit Jujaroen</p>
-    <div class="flex flex-row space-x-2">
-        <Icon name="bx:bxl-github" />
-        <Icon name="bx:bxl-linkedin-square" />
+<footer class="flex flex-col items-center w-full bg-gray-800 text-white text-center mt-auto p-4 space-y-2">
+    <p class="text-sm lg:text-2xl">Copyright &#169; 2025 | Powered by AstroJS | Website Design by Jomkit Jujaroen</p>
+    <div class="flex flex-row space-x-2 text-2xl">
+        <a href={github} target="_blank" rel="noopener noreferrer"><Icon name="bx:bxl-github" /></a>
+        <a href={linkedInUrl} target="_blank" rel="noopener noreferrer"><Icon name="bx:bxl-linkedin-square" /></a>
     </div>
 </footer>
