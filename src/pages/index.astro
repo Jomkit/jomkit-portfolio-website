@@ -1,38 +1,47 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import selfiePastel from '../images/selfiePastel.jpg';
+import risatech from '../images/risatech-welcome.png';
+import fab from '../images/fab.png';
 import { Image } from 'astro:assets';
+import ProjectOverlay from '../components/ProjectOverlay';
 ---
 
 <Layout title="Home">
 	<main class="flex flex-col items-center space-y-6">
-		<h1 class="mt-6">Jomkit Jujaroen</h1>
-		<div class="flex flex-col gap-y-4 pb-8">
-			<Image src={selfiePastel} alt="Picture of Jomkit Jujaroen" width={400} class="border-4 border-black mx-auto" />
-			<div id="blurb" class="w-2/3 m-auto">
-				<h3>A <span class="font-bold">full-stack software engineer</span> with a global perspective</h3>
-				<p>Thanks for visiting my website! I'm a developer who loves turning challenges into elegant solutions. Take a look at my projects and let's build something awesome. <a class="bg-slate-500 px-1 rounded-lg text-white hover:border-2 border-black" href="/about">About Me</a></p>
-			</div>
-			<!-- <p class="italic">Clean, optimized websites handcrafted to your specific needs</p> -->
-		</div>
-
-		<section id="projects" class="flex flex-col bg-indigo-800 text-white">
-			<h2>Projects</h2>
-			<div>
-				<p>As a software engineer, I have worked on a wide range of projects, from simple landing pages to complex web applications.</p>
-			</div>
-			<div class="grid lg:grid-cols-4 gap-x-2">
-				<img src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="border-2 border-white rounded" />
-				<img src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="border-2 border-white rounded" />
-				<img src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="border-2 border-white rounded" />
-				<img src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="border-2 border-white rounded" />
+		<section>
+			<h1 class="lg:mt-6 text-center">Jomkit Jujaroen</h1>
+			<div class="flex flex-col gap-y-4 pb-4">
+				<div id="blurb" class="lg:w-2/3 m-auto space-y-2">
+					<h3>A <span class="font-bold">full-stack software engineer</span> with a global perspective</h3>
+					<p>Thanks for visiting my website! I'm a developer who loves turning challenges into elegant solutions. Take a look at my projects and let's build something awesome.</p>
+					<a class="bg-slate-500 px-2 rounded text-white hover:border-2 border-black" href="/about">About Me</a>
+				</div>
+				<!-- <p class="italic">Clean, optimized websites handcrafted to your specific needs</p> -->
 			</div>
 		</section>
 
-		<section id="services" class="flex flex-col bg-white px-16 py-12 space-y-8">
+		<section id="work" class="flex flex-col bg-indigo-800 text-white">
+			<h2>Past Work</h2>
+			<div>
+				<p>As a software engineer, I have worked on a wide range of projects, from simple landing pages to complex web applications.</p>
+				<a class="underline hover:text-blue-200" href="/work">Learn More...</a>
+			</div>
+			<div class="grid lg:grid-cols-2 gap-x-12 gap-y-4">
+				<ProjectOverlay header='risatech.ai' footer="Full stack engineer responsible for pushing new, mission-critical features to our flagship product" url="https://risatech.ai/" client:load>
+					<Image src={risatech} alt="risatech.ai welcome page" />
+				</ProjectOverlay>
+				<ProjectOverlay header='foxallenbindery portfolio website' footer="Developed, designed, and currently maintaining the book binding website of Fox Allen Maasch" url="https://foxallenbindery.com/" client:load>
+					<Image src={fab} alt="foxallenbindery landing page" />
+				</ProjectOverlay>
+			</div>
+		</section>
+
+		<section id="services" class="flex flex-col bg-white lg:py-12 space-y-8">
 			<h2>Services</h2>
 			<div>
 				<p>I build and maintain websites using the latest technologies, ensuring that they are fast, secure, and user-friendly.</p>
+				<p>Reach out to me at <span>j.jujaroen96@gmail.com</span> for web development comissions, project ideas, or other collaborations.</p>
 			</div>
 		</section>
 	</main>
