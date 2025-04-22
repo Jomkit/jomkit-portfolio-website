@@ -7,10 +7,9 @@ import { Image } from 'astro:assets';
 import ProjectOverlay from '../components/ProjectOverlay';
 ---
 
-<Layout title="Home">
-	<main class="flex flex-col items-center space-y-6">
+<Layout title="Home" altTitle="Jomkit Jujaroen">
+	<main class="flex flex-col items-center">
 		<section>
-			<h1 class="lg:mt-6 text-center">Jomkit Jujaroen</h1>
 			<div class="flex flex-col gap-y-4 pb-4">
 				<div id="blurb" class="lg:w-2/3 m-auto space-y-2">
 					<h3>A <span class="font-bold">full-stack software engineer</span> with a global perspective</h3>
@@ -24,7 +23,7 @@ import ProjectOverlay from '../components/ProjectOverlay';
 		<section id="work" class="flex flex-col bg-indigo-800 text-white">
 			<h2>Past Work</h2>
 			<div>
-				<p>As a software engineer, I have worked on a wide range of projects, from simple landing pages to complex web applications.</p>
+				<p>I’m a software engineer with experience building a variety of projects—from robust web applications for businesses to sleek portfolio websites for traditional craftsmen.</p>
 				<a class="underline hover:text-blue-200" href="/work">Learn More...</a>
 			</div>
 			<div class="grid lg:grid-cols-2 gap-x-12 gap-y-4">
@@ -37,11 +36,29 @@ import ProjectOverlay from '../components/ProjectOverlay';
 			</div>
 		</section>
 
-		<section id="services" class="flex flex-col bg-white lg:py-12 space-y-8">
+		<section id="services" class="flex flex-col bg-white lg:py-12 space-y-6">
 			<h2>Services</h2>
-			<div>
+			<div class="lg:space-y-4">
 				<p>I build and maintain websites using the latest technologies, ensuring that they are fast, secure, and user-friendly.</p>
+
+				<ul class="ml-8 list-disc">
+					<li>SEO Optimized</li>
+					<li>Fast Loading</li>
+					<li>Secure</li>
+				</ul>
+				
 				<p>Reach out to me at <span>j.jujaroen96@gmail.com</span> for web development comissions, project ideas, or other collaborations.</p>
+			</div>
+		</section>
+
+		<section id="hobbies" class="flex flex-col bg-indigo-800 text-white mb-12">
+			<h2>Hobbies</h2>
+			<div class="space-y-4">
+				<p>In my free time I like keeping up with new software trends, networking with other professionals, and exploring new hobbies.</p>
+				<div>
+					<h3>Axe Throwing</h3>
+					<p>Axe throwing is one of those hobbies that I've grown passionate about. It exemplifies all the things I like about software engineering: it is impressive to watch a skilled practitioner throw their axe but even more exciting to experience it for yourself, learning all the skill and nuance that goes into perfecting the throw.</p>
+				</div>
 			</div>
 		</section>
 	</main>

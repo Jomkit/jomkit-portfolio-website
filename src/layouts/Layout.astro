@@ -1,9 +1,10 @@
 ---
 interface Props {
 	title: string;
+	altTitle?: string | null;
 }
 
-const { title } = Astro.props;
+const { title, altTitle=null } = Astro.props;
 import Header from './Header.astro'
 import Footer from './Footer.astro';
 ---
@@ -21,7 +22,8 @@ import Footer from './Footer.astro';
 	<body class="bg-[--primary-color] flex flex-col h-[100vh]">
 		<Header client:load />
 
-		<main class="flex flex-col items-center space-y-6">
+		<main class="flex flex-col items-center space-y-4">
+			<h1 class="pt-6">{altTitle ? altTitle : title}</h1>
 			<slot />
 		</main>
 		
@@ -55,7 +57,7 @@ import Footer from './Footer.astro';
 	}
 
 	h3 {
-		@apply text-3xl;
+		@apply text-2xl;
 	}
 
 	section {
