@@ -1,19 +1,32 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-const allPosts = Object.values(import.meta.glob('./*.md', { eager: true }));
+interface post {
+    frontmatter: {
+        title: string;
+        pubDate: string;
+    };
+    url: string;
+}
+
+const allPosts = Object.values(import.meta.glob('./*.md', { eager: true }))
+    .sort((a: post, b: post) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime());
 ---
 
-<Layout title="Blog">
+<Layout title="Blog" altTitle="Welcome to My Blog!">
     <div class="flex flex-col w-2/3 gap-y-4 pb-8">
-        <div id="blurb" class="m-auto bg-indigo-800 text-white p-6 rounded">
-            <h2>Welcome to my blog!</h2>
+        <div id="blurb" class="m-auto bg-indigo-800 text-white p-6 space-y-4 rounded">
             <p>Here I write about my experiences and thoughts on various topics, including software development, technology, and personal projects. I hope you find something interesting!</p>
+            <p>I'm still in the process of building my website, and I suspect I'll never truly be done adding something or refactoring some other thing, so please let me know if there's anything I can add or improve. That would be much appreciated.</p>
         </div>
         <hr />
         <div class="w-full m-auto p-10 bg-slate-300 space-y-4">
             <h2 class="text-3xl font-bold">All Posts</h2>
             <hr class="border-black" />
             <ul class="space-y-6">
+                <li class="flex flex-row justify-between font-bold">
+                    <span>Title</span>
+                    <span>Date</span>
+                </li>
             {allPosts.map((post: any) => 
                 <li class="flex flex-row justify-between">
                     <a href={post.url} class="text-blue-500 hover:underline">{post.frontmatter.title}</a>

@@ -4,14 +4,47 @@ import Image from 'astro/components/Image.astro';
 import jomkit1 from '../../images/jomkit1.jpg';
 ---
 <Layout title="About">
-    <section class="items-center h-svh relative">
-        <div class="flex w-3/4 h-3/4 justify-between bg-indigo-400 p-8">
-            <div class="bg-white w-1/2 h-2/3 p-6 border-4 border-black">
-                <p>Hi, thanks for visiting my website! My name is Jomkit, and I'm a software developer currently based in Maine. I love learning new things, technologies, and hobbies. On the technology side I've been learning how to use docker for web development. On the hobby side I've been doing a lot of axe throwing.</p>
-                <p>I love trying different things and exploring new industries because I believe that creative solutions lie at the intersection of unexpected topics.</p>
-            </div>
-            <div class="w-1/2 flex items-start justify-end">
+    <section class="items-center">
+        <div class="flex flex-col items-center bg-indigo-400 p-6 space-y-8">
+            
+            <div class="w-1/2 flex items-start justify-center">
                 <Image src={jomkit1} alt="about profile picture" width={400} class="border-4 border-white" />
+            </div>
+            <div class="bg-white m-auto mt-0 p-6 border-4 border-black">
+                <h2>At a glance...</h2>
+                <div class="mt-2 space-y-4">
+                    <p>Hi, thanks for visiting my website! My name is Jomkit, and I'm a software developer currently based in the United States, in the state of Maine 🦞.</p>
+                    <p>I learned fundamental software engineering principles and methodologies from the online bootcamp, Springboard. I participated remotely from August 2023, and graduated in August 2024.</p>
+                    <p>I've had the pleasure of trying out plenty of new and exciting technologies, including Google Cloud Platform, Docker, and Next.js, sometimes for work and sometimes for personal exploration.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <p class="font-bold">My primary tools of choice currently are:</p>
+                            <ul>
+                                <li>JavaScript</li>
+                                <li>TypeScript</li>
+                                <li>Node.js</li>
+                                <li>React</li>
+                                <li>Astro</li>
+                                <li>Tailwind CSS</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="font-bold">I also have experience in:</p>
+                            <ul>
+                                <li>Python</li>
+                                <li>Flask</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3>My Story</h3>
+                    <p>As an engineer, I love learning how things work. I've always been passionate about building things. As a kid I was at my most focused when I was putting together Star Wars lego sets, and as I grew older that turned into making cosplay, assembling Gundam model kits, and ultimately led me to the Rochester Institute of Technology for a bachelors in Electrical/Mechanical Engineering Technology.</p>
+                    
+                    <h3>My Current Hobbies</h3>
+                    <a href="/about/hobbies" class="underline hover:text-blue-500">Learn more...</a>
+                    <p>On the hobby side I've been doing a lot of axe throwing. I love trying different things and exploring new industries because I believe that creative solutions lie at the intersection of unexpected topics.</p>
+                
+                </div>
             </div>
         </div>
         <!-- <div class="absolute bottom-72 skew-y-8 z-0 bg-indigo-800 w-3/4 h-24"></div>

@@ -9,9 +9,9 @@ const {frontmatter} = Astro.props;
         <a href="/posts" class="bg-green-600 active:bg-green-700 text-white py-1 px-2 rounded m-1 lg:ml-0">Back</a>
     </div>
     <div class="flex flex-col items-center mt-6">
-        <h1>{frontmatter.title}</h1>
+        <!-- <h1>{frontmatter.title}</h1> -->
         
-        <p class="text-slate-600">{frontmatter.pubDate}</p>
+        <p class="text-slate-600">First Published: {frontmatter.pubDate}</p>
     
     </div>
 
