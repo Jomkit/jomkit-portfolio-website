@@ -5,7 +5,7 @@ interface Props {
 }
 
 const { title, altTitle=null } = Astro.props;
-import Header from './Header.astro'
+import Header from './Header.astro';
 import Footer from './Footer.astro';
 ---
 
@@ -20,7 +20,7 @@ import Footer from './Footer.astro';
 		<title>{title}</title>
 	</head>
 	<body class="bg-[--primary-color] flex flex-col h-[100vh]">
-		<Header client:load />
+		<Header />
 
 		<main class="flex flex-col items-center space-y-4">
 			<h1 class="pt-6">{altTitle ? altTitle : title}</h1>
