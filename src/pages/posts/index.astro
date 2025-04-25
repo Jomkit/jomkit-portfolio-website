@@ -9,7 +9,7 @@ interface post {
 }
 
 const allPosts = Object.values(import.meta.glob<post>('./*.md', { eager: true }))
-    .sort((a: post, b: post) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime());
+    .sort((a: post, b: post): number => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime());
 ---
 
 <Layout title="Blog" altTitle="Welcome to My Blog!">
