@@ -1,19 +1,21 @@
 ---
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+
 interface Props {
 	title: string;
 	altTitle?: string | null;
 }
 
 const { title, altTitle=null } = Astro.props;
-import Header from './Header.astro';
-import Footer from './Footer.astro';
+const websiteDescription = 'Portfolio website for Jomkit Jujaroen, full-stack software engineer and web developer';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={websiteDescription} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/jj_logo_no_bg.svg" />
 		<meta name="generator" content={Astro.generator} />
