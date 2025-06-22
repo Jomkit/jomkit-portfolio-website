@@ -15,7 +15,7 @@ function ProjectOverlay({children, header="", footer="", url="#"}) {
         <button onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
           <div className='relative'>
             {showing &&
-              <div id="header" className='absolute top-0 left-0 z-10 bg-black opacity-60 w-full text-start p-1'>{header}</div>
+              <div id="header" className='absolute top-0 left-0 z-10 text-white bg-black opacity-60 w-full text-start p-1'>{header}</div>
             }
             { url === "#" ? 
               <div>{children}</div>
@@ -25,7 +25,7 @@ function ProjectOverlay({children, header="", footer="", url="#"}) {
               </a>
             }
             {showing &&
-              <div id="footer" className='absolute bottom-0 left-0 z-10 bg-black opacity-60 w-full text-start p-1'>{footer}</div>
+              <div id="footer" className='absolute bottom-0 left-0 z-10 text-white bg-black opacity-60 w-full text-start p-1'>{footer}</div>
             }
           </div>
         </button>

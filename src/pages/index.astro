@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import selfiePastel from '../images/selfiePastel.jpg';
 import risatech from '../images/risatech-welcome.png';
 import fab from '../images/fab.png';
 import { Image } from 'astro:assets';
@@ -14,10 +13,7 @@ import ProjectOverlay from '../components/ProjectOverlay';
 				<div id="blurb" class="m-auto space-y-4">
 					<h3 class="text-center italic">A <span class="font-bold">full-stack software engineer</span> with a global perspective</h3>
 					
-					<p>Thanks for visiting my website! As a software engineer who likes to keep up with trends and believes in continuous development, I'm always looking for ways to improve myself and my skills. In that spirit, this website will also be constantly developing, so don't be surprised if I change things up every once and a while. 
-					</p>
-					<p>
-					I'm a developer who loves turning challenges into elegant solutions. Take a look at my projects and let's build something awesome.	
+					<p>Thanks for visiting my website! I built it completely by myself, using Astro.js, React, and TailwindCSS. I hope you find something interesting. I like to learn new things, and make awesome websites.
 					</p>
 					<a class="bg-slate-500 px-2 rounded text-white hover:border-2 border-black" href="/about">About Me</a>
 				</div>
@@ -25,49 +21,67 @@ import ProjectOverlay from '../components/ProjectOverlay';
 			</div>
 		</section>
 
-		<section id="work" class="flex flex-col bg-indigo-800 text-white">
-			<h2>Past Work</h2>
-			<div>
-				<p>I’m a software engineer with experience building a variety of projects—from robust web applications for businesses to sleek portfolio websites for traditional craftsmen.</p>
-				<a class="underline hover:text-blue-200" href="/work">Learn More...</a>
-			</div>
-			<div class="grid lg:grid-cols-2 gap-x-12 gap-y-4">
-				<ProjectOverlay header='risatech.ai' footer="Full stack engineer responsible for pushing new, mission-critical features to our flagship product" url="https://risatech.ai/" client:load>
-					<Image src={risatech} alt="risatech.ai welcome page" />
-				</ProjectOverlay>
-				<ProjectOverlay header='foxallenbindery portfolio website' footer="Developed, designed, and currently maintaining the book binding website of Fox Allen Maasch" url="https://foxallenbindery.com/" client:load>
-					<Image src={fab} alt="foxallenbindery landing page" />
-				</ProjectOverlay>
-			</div>
-		</section>
+		<div class="space-y-2 mb-4">
+			<section id="News" class="flex flex-col even:bg-slate-300 odd:bg-blue-800 odd:text-white">
+				<h2>What I've Been Up To</h2>
+				<div class="space-y-2">
+					<p><b>Open-Source:</b> Recently I've been dabbling in open-source contributions, and having a whale of a time. Something I didn't realize was how much of a great opportunity it is to learn new technology and practice the software engineering workflow.</p> 
 
-		<section id="services" class="flex flex-col bg-white lg:py-12 space-y-6">
-			<h2>Services</h2>
-			<div class="lg:space-y-4">
-				<p>I build and maintain websites using the latest technologies, ensuring that they are fast, secure, and user-friendly.</p>
-
-				<ul class="ml-8 list-disc">
-					<li>SEO Optimized</li>
-					<li>Fast Loading</li>
-					<li>Secure</li>
-				</ul>
-				
-				<p>Reach out to me at <span>j.jujaroen96@gmail.com</span> for web development comissions, project ideas, or other collaborations.</p>
-			</div>
-		</section>
-
-		<section id="hobbies" class="flex flex-col bg-indigo-800 text-white mb-12">
-			<h2>Hobbies</h2>
-			<div class="space-y-4">
-				<p>In my free time I like keeping up with new software trends, networking with other professionals, and exploring new hobbies.</p>
-				<div>
-					<h3>Axe Throwing</h3>
-					<p>Axe throwing is one of those hobbies that I've grown passionate about. It exemplifies all the things I like about software engineering: it is impressive to watch a skilled practitioner throw their axe but even more exciting to experience it for yourself, learning all the skill and nuance that goes into perfecting the throw.</p>
+					<p>In this case I had to pick up enough <a class="underline hover:font-bold" href="https://angular.dev/">Angular</a> to start making contributions. Check out the project! It's an open-source idle game: <a class="hover:underline" href="https://glowriftduskhall.felfhenor.com/">Glowrift-Duskhall</a></p>
+					<p><b>Learning Skills:</b> I decided to take the plunge on learning a new programming language this year, and I decided to pick up Java.</p>
 				</div>
-			</div>
-		</section>
+
+				<p><a href="/about">Check out some more personal goals of mine</a></p>
+			</section>
+	
+			<section id="work" class="flex flex-col even:bg-slate-300 odd:bg-blue-800 odd:text-white">
+				<h2>Past Work</h2>
+				<div>
+					<p>I’m a software engineer with experience building a variety of projects—from robust web applications for businesses to sleek portfolio websites for traditional craftsmen.</p>
+					<p><a class="underline" href="/work">Learn More...</a></p>
+				</div>
+				<div class="grid lg:grid-cols-2 gap-x-12 gap-y-4">
+					<ProjectOverlay header='risatech.ai' footer="Full stack engineer responsible for pushing new, mission-critical features to our flagship product" url="https://risatech.ai/" client:load>
+						<Image src={risatech} alt="risatech.ai welcome page" />
+					</ProjectOverlay>
+					<ProjectOverlay header='foxallenbindery portfolio website' footer="Developed, designed, and currently maintaining the book binding website of Fox Allen Maasch" url="https://foxallenbindery.com/" client:load>
+						<Image src={fab} alt="foxallenbindery landing page" />
+					</ProjectOverlay>
+				</div>
+			</section>
+	
+			<section id="services" class="flex flex-col even:bg-slate-300 odd:bg-blue-800 odd:text-white lg:py-12 space-y-6">
+				<h2>Services</h2>
+				<div class="lg:space-y-4">
+					<p>I build and maintain websites using the latest technologies, ensuring that they are fast, secure, and user-friendly.</p>
+	
+					<ul class="ml-8 list-disc">
+						<li>SEO Optimized</li>
+						<li>Fast Loading</li>
+						<li>Secure</li>
+					</ul>
+					
+					<p>Reach out to me at <span>j.jujaroen96@gmail.com</span> for web development comissions, project ideas, or other collaborations.</p>
+				</div>
+			</section>
+	
+			<section id="hobbies" class="flex flex-col mb-12 even:bg-slate-300 odd:bg-blue-800 odd:text-white">
+				<h2>Hobbies</h2>
+				<div class="space-y-4">
+					<p>In my free time I like keeping up with new software trends, networking with other professionals, and exploring new hobbies.</p>
+					<div>
+						<h3>Axe Throwing</h3>
+						<p>Axe throwing is one of those hobbies that I've grown passionate about. It exemplifies all the things I like about software engineering: it is impressive to watch a skilled practitioner throw their axe but even more exciting to experience it for yourself, learning all the skill and nuance that goes into perfecting the throw.</p>
+					</div>
+				</div>
+			</section>
+		</div>
+
 	</main>
 </Layout>
 
 <style>
+	a:hover {
+		@apply  font-semibold underline;
+	}
 </style>

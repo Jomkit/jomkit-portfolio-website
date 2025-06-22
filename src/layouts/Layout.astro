@@ -1,4 +1,6 @@
 ---
+import { ClientRouter } from 'astro:transitions';
+import { fade } from 'astro:transitions';
 import Header from './Header.astro';
 import Footer from './Footer.astro';
 
@@ -12,11 +14,12 @@ const websiteDescription = 'Portfolio website for Jomkit Jujaroen, full-stack so
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" transition:name="root" transition:animate="none">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={websiteDescription} />
 		<meta name="viewport" content="width=device-width" />
+		<ClientRouter />
 		<link rel="icon" type="image/svg+xml" href="/jj_logo_no_bg.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
@@ -24,7 +27,7 @@ const websiteDescription = 'Portfolio website for Jomkit Jujaroen, full-stack so
 	<body class="bg-[--primary-color] flex flex-col h-[100vh]">
 		<Header />
 
-		<main class="flex flex-col items-center space-y-4">
+		<main class="flex flex-col items-center space-y-4" transition:animate={fade({ duration: "0.1s"})}>
 			<h1 class="pt-6 text-center">{altTitle ? altTitle : title}</h1>
 			<slot />
 		</main>
