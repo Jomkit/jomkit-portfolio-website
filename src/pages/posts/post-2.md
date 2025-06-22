@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/BlogPostLayout.astro'
 title: "Introduction to Jomkit's Blog"
-pubDate: 2025/04/08
+pubDate: 08/04/2025
 description: "A blog post about what this website is"
 author: "Jomkit Jujaroen"
 image: 
