@@ -13,13 +13,12 @@ const allPosts = Object.values(import.meta.glob<post>('./*.md', { eager: true })
 ---
 
 <Layout title="Blog" altTitle="Welcome to My Blog!">
-    <div class="flex flex-col w-2/3 gap-y-4 pb-8">
-        <div id="blurb" class="m-auto bg-indigo-800 text-white p-6 space-y-4 rounded">
-            <p>Here I write about my experiences and thoughts on various topics, including software development, technology, and personal projects. I hope you find something interesting!</p>
-            <p>I'm still in the process of building my website, and I suspect I'll never truly be done adding something or refactoring some other thing, so please let me know if there's anything I can add or improve. That would be much appreciated.</p>
-        </div>
-        <hr />
-        <div class="w-full m-auto p-10 bg-slate-300 space-y-4">
+    <div class="flex flex-col lg:gap-y-4 lg:pb-8">
+        <section id="blurb" class="bg-indigo-800 text-white p-6 space-y-4 lg:rounded">
+            <p>Here I write about my experiences and thoughts on software development, technology, and personal projects. I hope you find something interesting!</p>
+        </section>
+        <hr class="lg:w-3/4 m-auto" />
+        <section class="mx-0 lg:m-auto bg-slate-300 space-y-4">
             <h2 class="text-3xl font-bold">All Posts</h2>
             <hr class="border-black" />
             <ul class="space-y-6">
@@ -34,7 +33,7 @@ const allPosts = Object.values(import.meta.glob<post>('./*.md', { eager: true })
                 </li>
             )}
             </ul>
-        </div>
+        </section>
     </div>
 
 

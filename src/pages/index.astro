@@ -4,6 +4,7 @@ import risatech from '../images/risatech-welcome.png';
 import fab from '../images/fab.png';
 import { Image } from 'astro:assets';
 import ProjectOverlay from '../components/ProjectOverlay';
+import { SingleAccordion } from '@/components/SingleAccordion';
 ---
 
 <Layout title="Home" altTitle="Jomkit Jujaroen">
@@ -13,31 +14,44 @@ import ProjectOverlay from '../components/ProjectOverlay';
 				<div id="blurb" class="m-auto space-y-4">
 					<h3 class="text-center italic">A <span class="font-bold">full-stack software engineer</span> with a global perspective</h3>
 					
-					<p>Thanks for visiting my website! I built it completely by myself, using Astro.js, React, and TailwindCSS. I hope you find something interesting. I like to learn new things, and make awesome websites.
+					<p>Thanks for visiting my website! I built it completely by myself, using Astro.js, React, and TailwindCSS. 
 					</p>
-					<a class="bg-slate-500 px-2 rounded text-white hover:border-2 border-black" href="/about">About Me</a>
+					<p>I hope you find something interesting. I like to learn new things, and make awesome websites.</p>
+					
+					<!-- <div>
+						<a class="bg-green-500 px-2 py-1 rounded text-white hover:border-2 border-black" href="/about">About Me</a>
+					</div> -->
 				</div>
-				<!-- <p class="italic">Clean, optimized websites handcrafted to your specific needs</p> -->
 			</div>
 		</section>
 
-		<div class="space-y-2 mb-4">
+		<div class="lg:space-y-2 lg:mb-8">
 			<section id="News" class="flex flex-col even:bg-slate-300 odd:bg-blue-800 odd:text-white">
 				<h2>What I've Been Up To</h2>
-				<div class="space-y-2">
-					<p><b>Open-Source:</b> Recently I've been dabbling in open-source contributions, and having a whale of a time. Something I didn't realize was how much of a great opportunity it is to learn new technology and practice the software engineering workflow.</p> 
+				<p>The two main things I've been up to recently are open source and learning new skills and technologies.</p>
+				<div>
+					<SingleAccordion title="Open Source" client:idle>
+						<div class="space-y-2">
+							<p>Recently I've been dabbling in open-source contributions, and having a whale of a time. Something I didn't realize was how much of a great opportunity it is to learn new technology and practice the software engineering workflow.</p>
+							<p>In this case I had to pick up enough <a class="underline hover:font-bold" href="https://angular.dev/">Angular</a> to start making contributions. Check out the project! It's an open-source idle game: <a class="hover:underline" href="https://glowriftduskhall.felfhenor.com/">Glowrift-Duskhall</a></p>
+						</div>
+					</SingleAccordion>
 
-					<p>In this case I had to pick up enough <a class="underline hover:font-bold" href="https://angular.dev/">Angular</a> to start making contributions. Check out the project! It's an open-source idle game: <a class="hover:underline" href="https://glowriftduskhall.felfhenor.com/">Glowrift-Duskhall</a></p>
-					<p><b>Learning Skills:</b> I decided to take the plunge on learning a new programming language this year, and I decided to pick up Java.</p>
+					<SingleAccordion title="Learning Skills" client:idle>
+						<p>I decided to take the plunge on learning a new programming language this year, and I decided to pick up Java. I've been learning Java through the University of Helsinki's Massive Open Online Course (MOOC), specifically their <a class="underline" href="https://java-programming.mooc.fi/">Java Programming</a> course!</p> 
+						<p>I've also started learning neovim. Although initially quite intimidating, it's been a lot of fun. Although I haven't been able to incorporate it into my workflow just yet, learning vim motions has been like enrolling at Hogwarts.</p>
+					</SingleAccordion>
+
 				</div>
 
 				<p><a href="/about">Check out some more personal goals of mine</a></p>
 			</section>
 	
 			<section id="work" class="flex flex-col even:bg-slate-300 odd:bg-blue-800 odd:text-white">
-				<h2>Past Work</h2>
-				<div>
-					<p>I’m a software engineer with experience building a variety of projects—from robust web applications for businesses to sleek portfolio websites for traditional craftsmen.</p>
+				<h2>Things I've Worked On</h2>
+				<div class="space-y-2">
+					<p>I love working on different projects, from robust web applications for businesses to specialized portfolio websites for skilled craftsmen.</p>
+					<p>Check them out below!</p>
 					<p><a class="underline" href="/work">Learn More...</a></p>
 				</div>
 				<div class="grid lg:grid-cols-2 gap-x-12 gap-y-4">
@@ -65,7 +79,7 @@ import ProjectOverlay from '../components/ProjectOverlay';
 				</div>
 			</section>
 	
-			<section id="hobbies" class="flex flex-col mb-12 even:bg-slate-300 odd:bg-blue-800 odd:text-white">
+			<section id="hobbies" class="flex flex-col even:bg-slate-300 odd:bg-blue-800 odd:text-white">
 				<h2>Hobbies</h2>
 				<div class="space-y-4">
 					<p>In my free time I like keeping up with new software trends, networking with other professionals, and exploring new hobbies.</p>
