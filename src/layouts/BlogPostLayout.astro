@@ -8,14 +8,14 @@ const {frontmatter} = Astro.props;
         <!-- <a href="/posts" class="px-5 py-3 mt-2 text-blue-600 hover:underline hover:shadow-lg hover:bg-green-500 hover:text-white transition ease-in delay-75 font-bold rounded-lg">Back</a> -->
         <a href="/posts" class="bg-green-600 active:bg-green-700 text-white py-1 px-2 rounded m-1 lg:ml-0">Back</a>
     </div>
-    <div class="flex flex-col items-center mt-6">
+    <div class="flex flex-col items-center mt-6 text-slate-600">
         <!-- <h1>{frontmatter.title}</h1> -->
-        
-        <p class="text-slate-600">First Published: {frontmatter.pubDate}</p>
+        <p>Written by: {frontmatter.author}</p>
+        <p>First Published: {frontmatter.pubDate.split('/').reverse().join('/')}</p>
     
     </div>
 
-    <div class="bg-slate-200 p-8 rounded lg:w-3/4">
+    <div class="bg-slate-200 p-4 lg:p-8 lg:px-20 rounded lg:w-3/4">
         <slot />
     </div>
 </Layout>

@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/BlogPostLayout.astro'
 title: "About Jomkit"
-pubDate: 22/04/2025
+pubDate: 2025/04/22
 description: "This post is about Jomkit the learner"
 author: "Jomkit Jujaroen"
 image: 

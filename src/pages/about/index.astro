@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Image from 'astro/components/Image.astro';
 import jomkit1 from '../../images/jomkit1.jpg';
+import { SingleAccordion } from '@/components/SingleAccordion';
 ---
 <Layout title="About">
     <section class="items-center">
@@ -14,36 +15,64 @@ import jomkit1 from '../../images/jomkit1.jpg';
                 <h2>At a glance...</h2>
                 <div class="mt-2 space-y-4">
                     <p>Hi, thanks for visiting my website! My name is Jomkit, and I'm a software developer currently based in the United States, in the state of Maine 🦞.</p>
-                    <p>I learned fundamental software engineering principles and methodologies from the online bootcamp, Springboard. I participated remotely from August 2023, and graduated in August 2024.</p>
-                    <p>I've had the pleasure of trying out plenty of new and exciting technologies, including Google Cloud Platform, Docker, and Next.js, sometimes for work and sometimes for personal exploration.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
+                    
+                    <SingleAccordion title='[expand]' expanded={true} client:only="react">
+                        <div class="space-y-4">
+                            <p>I learned fundamental software engineering principles and methodologies from the online bootcamp, Springboard. I participated remotely from August 2023, and graduated in August 2024.</p>
+                            <p>I've had the pleasure of trying out plenty of new and exciting technologies, including Google Cloud Platform, Docker, and Next.js, sometimes for work and sometimes for personal exploration.
+                            </p>
+                            <div class="grid grid-rows-2 sm:grid-rows-none sm:grid-cols-2 gap-4">
+                                <div>
+                                    <p class="font-bold">My primary tools of choice currently are:</p>
+                                    <ul>
+                                        <li>JavaScript</li>
+                                        <li>TypeScript</li>
+                                        <li>Node.js</li>
+                                        <li>React</li>
+                                        <li>Astro</li>
+                                        <li>Tailwind CSS</li>
+                                        <li>Bash</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-bold">I also have experience in:</p>
+                                    <ul>
+                                        <li>Angular</li>
+                                        <li>Python</li>
+                                        <li>Flask</li>
+                                        <li>Docker</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h3>My Story</h3>
+                            <p>As an engineer, I love learning how things work. I've always been passionate about building things. As a kid I was at my most focused when I was putting together Star Wars lego sets, and as I grew older that turned into making cosplay, assembling Gundam model kits, and ultimately led me to the Rochester Institute of Technology for a bachelors in Electrical/Mechanical Engineering Technology.</p>
+                            
+                            <h3>My Current Hobbies</h3>
+                            <a href="/about/hobbies" class="underline hover:text-blue-500">Learn more...</a>
+                            <p>On the hobby side I've been doing a lot of axe throwing. I love trying different things and exploring new industries because I believe that creative solutions lie at the intersection of unexpected topics.</p>
+                        </div>
+                    </SingleAccordion>
+                    
+                    <div class="space-y-2">
+                        <divx>
+                            <h2 id="goals">Personal Goals</h2>
+                            <p>A list of things I want to accomplish.</p>
+                        </div>
                         <div>
-                            <p class="font-bold">My primary tools of choice currently are:</p>
-                            <ul>
-                                <li>JavaScript</li>
-                                <li>TypeScript</li>
-                                <li>Node.js</li>
-                                <li>React</li>
-                                <li>Astro</li>
-                                <li>Tailwind CSS</li>
+                            <h3>Overarching Goals</h3>
+                            <ul class="px-4 sm:pl-8 list-disc">
+                                <li>Learn C++</li>
+                                <li>Gain Associate Cloud Engineer certification for GCP</li>
+                                <li>Launch my personal project, Axes to Axes</li>
                             </ul>
                         </div>
                         <div>
-                            <p class="font-bold">I also have experience in:</p>
-                            <ul>
-                                <li>Python</li>
-                                <li>Flask</li>
+                            <h3>Weekly Goals</h3>
+                            <ul class="px-4 sm:pl-8 list-disc">
+                                <li>Coming soon...</li>
                             </ul>
                         </div>
                     </div>
-                    <h3>My Story</h3>
-                    <p>As an engineer, I love learning how things work. I've always been passionate about building things. As a kid I was at my most focused when I was putting together Star Wars lego sets, and as I grew older that turned into making cosplay, assembling Gundam model kits, and ultimately led me to the Rochester Institute of Technology for a bachelors in Electrical/Mechanical Engineering Technology.</p>
-                    
-                    <h3>My Current Hobbies</h3>
-                    <a href="/about/hobbies" class="underline hover:text-blue-500">Learn more...</a>
-                    <p>On the hobby side I've been doing a lot of axe throwing. I love trying different things and exploring new industries because I believe that creative solutions lie at the intersection of unexpected topics.</p>
-                
                 </div>
             </div>
         </div>

@@ -27,9 +27,9 @@ const allPosts = Object.values(import.meta.glob<post>('./*.md', { eager: true })
                     <span>Date</span>
                 </li>
             {allPosts.map((post: any) => 
-                <li class="flex flex-row justify-between">
+                <li class="flex flex-row justify-between first:bg-red-500">
                     <a href={post.url} class="text-blue-800 hover:underline">{post.frontmatter.title}</a>
-                    <span>{post.frontmatter.pubDate}</span>
+                    <span>{post.frontmatter.pubDate.split('/').reverse().join('/')}</span>
                 </li>
             )}
             </ul>

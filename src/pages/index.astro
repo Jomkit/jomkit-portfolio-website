@@ -30,21 +30,24 @@ import { SingleAccordion } from '@/components/SingleAccordion';
 				<h2>What I've Been Up To</h2>
 				<p>The two main things I've been up to recently are open source and learning new skills and technologies.</p>
 				<div>
-					<SingleAccordion title="Open Source" client:idle>
+					<SingleAccordion title="Open Source" client:only>
 						<div class="space-y-2">
 							<p>Recently I've been dabbling in open-source contributions, and having a whale of a time. Something I didn't realize was how much of a great opportunity it is to learn new technology and practice the software engineering workflow.</p>
 							<p>In this case I had to pick up enough <a class="underline hover:font-bold" href="https://angular.dev/">Angular</a> to start making contributions. Check out the project! It's an open-source idle game: <a class="hover:underline" href="https://glowriftduskhall.felfhenor.com/">Glowrift-Duskhall</a></p>
 						</div>
 					</SingleAccordion>
 
-					<SingleAccordion title="Learning Skills" client:idle>
-						<p>I decided to take the plunge on learning a new programming language this year, and I decided to pick up Java. I've been learning Java through the University of Helsinki's Massive Open Online Course (MOOC), specifically their <a class="underline" href="https://java-programming.mooc.fi/">Java Programming</a> course!</p> 
-						<p>I've also started learning neovim. Although initially quite intimidating, it's been a lot of fun. Although I haven't been able to incorporate it into my workflow just yet, learning vim motions has been like enrolling at Hogwarts.</p>
+					<SingleAccordion title="Learning Skills" client:only>
+						<div class="space-y-2">
+							<p>Wanting to get back in touch with my background in Electrical/Mechanical Engineering Technology, I decided to pick up a Raspberry Pi and Arduino. I've already been studying up on embedded software engineering concepts, and having an incredible time learning topics old and new. Keep an eye on my <a href="/posts" class="underline">blog</a> for the latest updates on my journey!</p>
+							<p>I decided to take the plunge on learning a new programming language this year, and I decided to pick up Java. I've been learning Java through the University of Helsinki's Massive Open Online Course (MOOC), specifically their <a class="underline" href="https://java-programming.mooc.fi/">Java Programming</a> course!</p>
+							<p>I've also started learning neovim. Although initially quite intimidating, it's been a lot of fun. Although I haven't been able to incorporate it into my workflow just yet, learning vim motions has been like enrolling at Hogwarts.</p>
+						</div>
 					</SingleAccordion>
 
 				</div>
 
-				<p><a href="/about">Check out some more personal goals of mine</a></p>
+				<p>Check out some more personal goals of mine -> <a href="/about#goals">About Me</a></p>
 			</section>
 	
 			<section id="work" class="flex flex-col even:bg-slate-300 odd:bg-blue-800 odd:text-white">
