@@ -3,10 +3,12 @@ import Layout from '../../layouts/Layout.astro';
 import Image from 'astro/components/Image.astro';
 import jomkit1 from '../../images/jomkit1.jpg';
 import { SingleAccordion } from '@/components/SingleAccordion';
+
+const goalsUrl = "https://github.com/Jomkit/personal-goals";
 ---
 <Layout title="About">
-    <section class="items-center">
-        <div class="flex flex-col items-center bg-indigo-400 p-6 space-y-8">
+    <section class="items-center bg-indigo-400 mb-6">
+        <div class="flex flex-col items-center space-y-8">
             
             <div class="w-1/2 flex items-start justify-center">
                 <Image src={jomkit1} alt="about profile picture" width={400} class="border-4 border-white" />
@@ -57,6 +59,7 @@ import { SingleAccordion } from '@/components/SingleAccordion';
                         <divx>
                             <h2 id="goals">Personal Goals</h2>
                             <p>A list of things I want to accomplish.</p>
+                            <p>I also have a more in-depth github repository for personal goals: <a class="hover:underline font-semibold" href={goalsUrl} target="_blank" rel="noopener noreferrer">Jomkit's Personal Goals</a></p>
                         </div>
                         <div>
                             <h3>Overarching Goals</h3>

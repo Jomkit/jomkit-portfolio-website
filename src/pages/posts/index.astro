@@ -8,44 +8,31 @@ interface post {
     url: string;
 }
 
-const NEWPOSTWINDOW = 2;
-
 const allPosts = Object.values(import.meta.glob<post>('./*.md', { eager: true }))
     .sort((a: post, b: post): number => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime());
 ---
 
 <Layout title="Blog" altTitle="Welcome to My Blog!">
-    <div class="flex flex-col lg:gap-y-4 lg:pb-8">
-        <section id="blurb" class="bg-indigo-800 text-white p-6 space-y-4 lg:rounded">
-            <p>Here I write about my experiences and thoughts on software development, technology, and personal projects. I hope you find something interesting!</p>
-        </section>
-        <hr class="lg:w-3/4 m-auto" />
-        <section class="mx-0 lg:m-auto bg-slate-300 space-y-4">
-            <h2 class="text-3xl font-bold">All Posts</h2>
-            <hr class="border-black" />
-            <ul class="space-y-6">
-                <li class="flex flex-row justify-between font-bold">
-                    <span>Title</span>
-                    <span>Date</span>
-                </li>
-            {allPosts.map((post: any, i) => 
-                (i === 0 && (new Date().getTime() - new Date(post.frontmatter.pubDate).getTime()) <= NEWPOSTWINDOW * 24 * 60 * 60 * 1000) ?
-                <li class="flex flex-row justify-between">
-                    <div class="flex space-x-2 items-center">
-                        <a href={post.url} class="text-blue-800 hover:underline">{post.frontmatter.title}</a>
-                        <p class="font-bold">NEW!!</p>
-                    </div>
-                    <span>{post.frontmatter.pubDate.split('/').reverse().join('/')}</span>
-                </li>
-                :
-                <li class="flex flex-row justify-between">
-                    <a href={post.url} class="text-blue-800 hover:underline">{post.frontmatter.title}</a>
-                    <span>{post.frontmatter.pubDate.split('/').reverse().join('/')}</span>
-                </li>
-            )}
-            </ul>
-        </section>
-    </div>
+    <section id="blurb" class="bg-indigo-800 text-white space-y-4 lg:rounded">
+        <p>Here I write about my experiences and thoughts on software development, technology, and personal projects. I hope you find something interesting!</p>
+    </section>
+    <hr class="lg:w-3/4 lg:m-auto hidden lg:block" />
+    <section class="bg-slate-300 space-y-4">
+        <h2 class="text-3xl font-bold">All Posts</h2>
+        <hr class="border-black" />
+        <ul class="space-y-6">
+            <li class="flex flex-row justify-between font-bold">
+                <span>Title</span>
+                <span>Date</span>
+            </li>
+        {allPosts.map((post: any, i) => 
+            <li class="flex flex-row justify-between">
+                <a href={post.url} class="text-blue-800 hover:underline">{post.frontmatter.title}</a>
+                <span>{post.frontmatter.pubDate.split('/').reverse().join('/')}</span>
+            </li>
+        )}
+        </ul>
+    </section>
 
 
 </Layout>
