@@ -28,7 +28,16 @@ const allPosts = Object.values(import.meta.glob<post>('./*.md', { eager: true })
                     <span>Title</span>
                     <span>Date</span>
                 </li>
-            {allPosts.map((post: any, i) =>             
+            {allPosts.map((post: any, i) => 
+                (i === 0 && (new Date().getTime() - new Date(post.frontmatter.pubDate).getTime()) <= NEWPOSTWINDOW * 24 * 60 * 60 * 1000) ?
+                <li class="flex flex-row justify-between">
+                    <div class="flex space-x-2 items-center">
+                        <a href={post.url} class="text-blue-800 hover:underline">{post.frontmatter.title}</a>
+                        <p class="font-bold">NEW!!</p>
+                    </div>
+                    <span>{post.frontmatter.pubDate.split('/').reverse().join('/')}</span>
+                </li>
+                :
                 <li class="flex flex-row justify-between">
                     <a href={post.url} class="text-blue-800 hover:underline">{post.frontmatter.title}</a>
                     <span>{post.frontmatter.pubDate.split('/').reverse().join('/')}</span>
