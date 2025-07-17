@@ -30,18 +30,19 @@ import { SingleAccordion } from '@/components/SingleAccordion';
 				<h2>What I've Been Up To</h2>
 				<p>The two main things I've been up to recently are open source and learning new skills and technologies.</p>
 				<div>
-					<SingleAccordion title="Open Source" client:only>
+					<SingleAccordion title="Open Source" expanded={true} client:only>
 						<div class="space-y-2">
 							<p>Recently I've been dabbling in open-source contributions, and having a whale of a time. Something I didn't realize was how much of a great opportunity it is to learn new technology and practice the software engineering workflow.</p>
 							<p>In this case I had to pick up enough <a class="underline hover:font-bold" href="https://angular.dev/">Angular</a> to start making contributions. Check out the project! It's an open-source idle game: <a class="hover:underline" href="https://glowriftduskhall.felfhenor.com/">Glowrift-Duskhall</a></p>
 						</div>
 					</SingleAccordion>
 
-					<SingleAccordion title="Learning Skills" client:only>
+					<SingleAccordion title="Learning Skills" expanded={true} client:only>
 						<div class="space-y-2">
-							<p>Wanting to get back in touch with my background in Electrical/Mechanical Engineering Technology, I decided to pick up a Raspberry Pi and Arduino. I've already been studying up on embedded software engineering concepts, and having an incredible time learning topics old and new. Keep an eye on my <a href="/posts" class="underline">blog</a> for the latest updates on my journey!</p>
-							<p>I decided to take the plunge on learning a new programming language this year, and I decided to pick up Java. I've been learning Java through the University of Helsinki's Massive Open Online Course (MOOC), specifically their <a class="underline" href="https://java-programming.mooc.fi/">Java Programming</a> course!</p>
-							<p>I've also started learning neovim. Although initially quite intimidating, it's been a lot of fun. Although I haven't been able to incorporate it into my workflow just yet, learning vim motions has been like enrolling at Hogwarts.</p>
+							<p>I recently set up PlatformIO on VS Code for microcontroller development. It was a little rough, but I managed to power through and get it set up. Check out my <a href="/posts" class="underline">blog</a> if you're wondering why I chose that over the Arduino IDE, and if you're interested in my experience setting up PlatformIO.</p>
+							<p>Since I am a glutton for torture, I decided if I'm gonna start tinkering with microcontrollers again, I might as well learn C++. Yes that's right, C++ and Java more or less at the same time. I'll explain my philosophy on this another time, but I honestly don't think it's gonna be that much of a problem, and I think there's a lot to learn from both languages for a web developer, or any software engineer for that matter.</p>
+							<p>I've been learning Java through the University of Helsinki's Massive Open Online Course (MOOC), specifically their <a class="underline" href="https://java-programming.mooc.fi/" target="_blank" rel="noopener noreferrer">Java Programming</a> course!</p>
+							<p>Progress on Neovim has been study; although I'm nowhere near good enough to be developing in Neovim yet, I've been slowly learning how to better configure it for my own purposes. This means learning how to install language server plugins so that TypeScript linting and auto-suggestions work correctly. Maybe when I finally get good at managing Neovim plugins, I'll write up a guide on it.</p>
 						</div>
 					</SingleAccordion>
 
