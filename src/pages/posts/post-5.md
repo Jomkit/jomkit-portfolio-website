@@ -29,7 +29,7 @@ So most of you who are familiar with Arduinos and perhaps have taken a class lik
 
 <h3 class="pt-5">Why wouldn't you just use the Arduino IDE?</h3>
 
-There are many good reasons to use the Arduino IDE. It's beginner friendly, abstracts some of the complex processes, and already has all the libraries you might need to program an Arduino microcontroller. However, if you want to eventually branch out and try different microcontrollers and electronics, you'll find yourself a little limited. That's where PlatformIO comes in.\
+There are many good reasons to use the Arduino IDE. It's beginner friendly, abstracts some of the complex processes, and already has all the libraries you might need to program an Arduino microcontroller. However, if you want to eventually branch out and try different microcontrollers and electronics, you'll find yourself a little limited. That's where PlatformIO comes in. PlatformIO is an open-source ecosystem for embedded software development. Thanks to this, it has many toolchains and libraries developed by the community, enabling anyone to easily set up a project for whichever board you might want to try out.\
 \
 The PlatformIO extension for VS Code is great because not only does it work for Arduino, it works for many other boards such as ESP32, STM32, and so on. Since it runs on VS Code, you now have access to intellisense and other auto-suggestion, as well as git integration, and even unit testing. See <a class="underline" href="https://dronebotworkshop.com/platformio/" target="_blank" rel="noopener noreferrer">Getting Started with PlatformIO</a> for more information, or checkout the official website <a class="underline" href="https://platformio.org/" target="_blank" rel="noopener noreferrer">platformio.org</a>.\
 \
