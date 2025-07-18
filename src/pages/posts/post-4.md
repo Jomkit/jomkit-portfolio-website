@@ -7,7 +7,7 @@ author: "Jomkit Jujaroen"
 image: 
     src: '../images/blog-images/first-blog-post'
     alt: 'Image of a dawn under a starry sky'
-tags: []
+tags: ["programming-principles"]
 ---
 <h3>Foreword</h3>
 

@@ -1,0 +1,96 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import { fade } from 'astro:transitions';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+
+interface Props {
+	title: string;
+	altTitle?: string | null;
+}
+
+const { title, altTitle=null } = Astro.props;
+const websiteDescription = 'Portfolio website for Jomkit Jujaroen, full-stack software engineer and web developer';
+---
+
+<!doctype html>
+<html lang="en" transition:name="root" transition:animate="none">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={websiteDescription} />
+		<meta name="viewport" content="width=device-width" />
+		<ClientRouter />
+		<link rel="icon" type="image/svg+xml" href="/jj_logo_no_bg.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="bg-[--primary-color] flex flex-col h-[100vh]">
+		<Header />
+
+		<main class="flex flex-col items-center space-y-4" transition:animate={fade({ duration: "0.1s"})}>
+			<h1 class="pt-6 text-center">{altTitle ? altTitle : title}</h1>
+			<slot />
+		</main>
+		
+		<Footer />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--primary-color: white;
+		--secondary-color: #007BFF;
+		--dark-color: #333333;
+
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		@apply text-xl;
+	}
+	h1 {
+		@apply text-6xl font-bold;
+	}
+
+	h2 {
+		@apply text-3xl font-bold;
+	}
+
+	h3 {
+		@apply text-2xl;
+	}
+
+	ul {
+		list-style: disc;
+	}
+
+	ol {
+		list-style: decimal;
+	}
+	ul li, ol li {
+		margin-left: 1em;
+		padding-left: 1em;
+	}
+
+	code {
+		background: #f4f4f4;
+		border: 1px solid #ddd;
+		/* border-left: 3px solid #f36d33; */
+		color: #666;
+		/* page-break-inside: avoid; */
+		font-family: monospace;
+		font-size: .75rem;
+		/* line-height: 1.6; */
+		margin-bottom: 1.6em;
+		/* max-width: 100%;
+		overflow: auto; */
+		padding: .5em .5em;
+		/* display: block; */
+		word-wrap: break-word;
+	}
+
+</style>
