@@ -25,3 +25,31 @@ const {frontmatter} = Astro.props;
         <slot />
     </div>
 </Layout2>
+
+<style is:global>
+    code {
+		background: #f4f4f4;
+		border: 1px solid #ddd;
+		/* border-left: 3px solid #f36d33; */
+		color: #666;
+		/* page-break-inside: avoid; */
+		font-family: monospace;
+		font-size: .75rem;
+		/* line-height: 1.6; */
+		margin-bottom: 1.6em;
+		/* max-width: 100%;
+		overflow: auto; */
+		padding: .5em .5em;
+		/* display: block; */
+		word-wrap: break-word;
+        
+        .block {
+            border-left: 3px solid #f36d33 !important;
+            page-break-inside: avoid;
+            line-height: 1.6;
+            width: 100%;
+            overflow: auto;
+            display: block;
+        }
+	}
+</style>
