@@ -5,7 +5,7 @@ pubDate: 2025/07/17
 description: "I talk about going full circle, from my background to software and now back to hardware"
 author: "Jomkit Jujaroen"
 image: 
-    src: '../images/blog-images/first-blog-post'
+    src: Null
     alt: 'Image of a dawn under a starry sky'
 tags: ["embedded","microcontrollers"]
 ---

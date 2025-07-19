@@ -5,11 +5,13 @@ pubDate: 2025/07/18
 description: "How to set up PlatformIO for VS Code on Windows Subsystem for Linux 2"
 author: "Jomkit Jujaroen"
 image: 
-    src: '../images/blog-images/first-blog-post'
-    alt: 'Image of a dawn under a starry sky'
+    src: '/src/images/blog-images/platformio.png'
+    alt: 'platformio icon'
 tags: ["embedded","microcontrollers", "setup"]
 ---
-<h2>Intro</h2>
+<i class="text-md">Image is platformio logo. This post is not sponsored</i>
+
+<h2 class="pt-5">Intro</h2>
 
 If you're here from yesterdays post, then thank you for being so invested! If you're here because like me you do a lot of development on WSL 2, and want to set up PlatformIO for some embedded software development, then you're in luck. 
 

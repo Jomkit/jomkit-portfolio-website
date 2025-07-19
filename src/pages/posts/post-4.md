@@ -5,7 +5,7 @@ pubDate: 2025/07/11
 description: "I'm not sure what this is yet"
 author: "Jomkit Jujaroen"
 image: 
-    src: '../images/blog-images/first-blog-post'
+    src: Null
     alt: 'Image of a dawn under a starry sky'
 tags: ["programming-principles"]
 ---

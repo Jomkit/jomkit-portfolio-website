@@ -5,7 +5,7 @@ pubDate: 2025/07/03
 description: "My first open-source experience"
 author: "Jomkit Jujaroen"
 image: 
-    src: '../images/blog-images/first-blog-post'
+    src: Null
     alt: 'Image of a dawn under a starry sky'
 tags: ["open-source"]
 ---

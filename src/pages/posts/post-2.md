@@ -5,7 +5,7 @@ pubDate: 2025/04/08
 description: "A blog post about what this website is"
 author: "Jomkit Jujaroen"
 image: 
-    src: '../images/blog-images/first-blog-post'
+    src: Null
     alt: 'Image of a dawn under a starry sky'
 tags: ["general", "personal"]
 ---

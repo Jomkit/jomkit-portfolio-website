@@ -50,7 +50,6 @@ const websiteDescription = 'Portfolio website for Jomkit Jujaroen, full-stack so
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		@apply text-xl;
 	}
 	h1 {
 		@apply text-6xl font-bold;
@@ -64,17 +63,27 @@ const websiteDescription = 'Portfolio website for Jomkit Jujaroen, full-stack so
 		@apply text-2xl;
 	}
 
-	ul {
-		list-style: disc;
+	main {
+		@apply text-xl;
+		
+		ul {
+			list-style: disc;
+		}
+
+		ol {
+			list-style: decimal;
+		}
+		
+		ul li, ol li {
+			margin-left: 1em;
+			padding-left: 1em;
+	
+			li {
+				list-style: circle;
+			}
+		}
 	}
 
-	ol {
-		list-style: decimal;
-	}
-	ul li, ol li {
-		margin-left: 1em;
-		padding-left: 1em;
-	}
 
 	code {
 		background: #f4f4f4;
