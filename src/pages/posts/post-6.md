@@ -5,7 +5,7 @@ pubDate: 2025/07/18
 description: "How to set up PlatformIO for VS Code on Windows Subsystem for Linux 2"
 author: "Jomkit Jujaroen"
 image: 
-    src: '/src/images/blog-images/platformio.png'
+    src: '/images/blog-images/platformio.png'
     alt: 'platformio icon'
 tags: ["embedded","microcontrollers", "setup"]
 ---
