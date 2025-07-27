@@ -7,7 +7,7 @@ author: "Jomkit Jujaroen"
 image: 
     src: Null
     alt: 'Some CSS Banner'
-tags: ["embedded","microcontrollers", "setup"]
+tags: ["Web Development", "CSS", "Methodology"]
 ---
 <h2 class="pt-5">Intro</h2>
 
