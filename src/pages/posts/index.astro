@@ -20,13 +20,13 @@ const allPosts = Object.values(import.meta.glob<post>('./*.md', { eager: true })
     <section class="bg-slate-300 space-y-4">
         <h2 class="text-3xl font-bold">All Posts</h2>
         <hr class="border-black" />
-        <ul class="space-y-6">
-            <li class="flex flex-row justify-between font-bold">
+        <ul class="space-y-6 pl-0">
+            <li class="flex flex-row justify-between font-bold ml-0 pl-0">
                 <span>Title</span>
                 <span>Date</span>
             </li>
         {allPosts.map((post: any, i) => 
-            <li class="flex flex-row justify-between">
+            <li class="flex flex-row justify-between ml-0 pl-0">
                 <a href={post.url} class="text-blue-800 hover:underline">{post.frontmatter.title}</a>
                 <span>{post.frontmatter.pubDate.split('/').reverse().join('/')}</span>
             </li>
