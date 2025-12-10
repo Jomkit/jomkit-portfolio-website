@@ -5,29 +5,33 @@ import fab from '../images/fab.png';
 import { Image } from 'astro:assets';
 import ProjectOverlay from '../components/ProjectOverlay';
 import { SingleAccordion } from '@/components/SingleAccordion';
+import Lightbulb from '@/components/Lightbulb.astro';
 ---
 
-<Layout title="Home" altTitle="Jomkit Jujaroen">
-	<main class="flex flex-col items-center">
-		<section>
-			<div class="flex flex-col gap-y-4 pb-4">
-				<div id="blurb" class="m-auto space-y-4">
+<Layout title="Home">
+	<div class="flex flex-col items-center">
+		<section class="h-screen">
+			<h1 class="text-center fadeInDown">Jomkit Jujaroen</h1>
+
+			<div class="flex flex-col gap-y-4 pb-4 h-full">
+				
+				<div id="blurb" class="flex flex-col items-center space-y-4 p-8 fadeInDown delay-500">
+					<div class="w-1/4">
+						<Lightbulb client:load />
+					</div>
+					
 					<h3 class="text-center italic">A <span class="font-bold">full-stack software engineer</span> with a global perspective</h3>
 					
 					<p>Thanks for visiting my website! I built it completely by myself, using Astro.js, React, and TailwindCSS. 
 					</p>
 					<p>I hope you find something interesting. I like to learn new things, and make awesome websites.</p>
-					
-					<!-- <div>
-						<a class="bg-green-500 px-2 py-1 rounded text-white hover:border-2 border-black" href="/about">About Me</a>
-					</div> -->
 				</div>
 			</div>
 		</section>
 
 		<div class="lg:space-y-2 lg:mb-8">
 			<section id="News" class="flex flex-col even:bg-slate-300 odd:bg-blue-800 odd:text-white">
-				<h2>What I've Been Up To</h2>
+				<h2>What's New</h2>
 				<p>The two main things I've been up to recently are open source and learning new skills and technologies.</p>
 				<div>
 					<SingleAccordion title="Open Source" expanded={true} client:only>
@@ -95,11 +99,27 @@ import { SingleAccordion } from '@/components/SingleAccordion';
 			</section>
 		</div>
 
-	</main>
+	</div>
 </Layout>
 
 <style>
 	a:hover {
 		@apply  font-semibold underline;
 	}
+
+	@keyframes fadeInDown {
+		0% {
+			transform: translateY(-100%);
+			opacity: 0;
+		}
+		100% {
+			transform: translateY(0%);
+			opacity: 1;
+		}
+	}
+
+	.fadeInDown {
+		animation: 1.5s fadeInDown;
+	}
+	
 </style>

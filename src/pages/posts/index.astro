@@ -12,7 +12,8 @@ const allPosts = Object.values(import.meta.glob<post>('./*.md', { eager: true })
     .sort((a: post, b: post): number => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime());
 ---
 
-<Layout title="Blog" altTitle="Welcome to My Blog!">
+<Layout title="Blog">
+    <h1 class="pt-6 text-center">Welcome to My Blog!</h1>
     <section id="blurb" class="bg-indigo-800 text-white space-y-4 lg:rounded">
         <p>Here I write about my experiences and thoughts on software development, technology, and personal projects. I hope you find something interesting!</p>
     </section>
