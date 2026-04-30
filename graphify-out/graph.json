@@ -1,0 +1,115 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "tailwind.config.mjs",
+      "file_type": "code",
+      "source_file": "tailwind.config.mjs",
+      "source_location": "L1",
+      "id": "tailwind_config_mjs",
+      "community": 2,
+      "norm_label": "tailwind.config.mjs"
+    },
+    {
+      "label": "astro.config.mjs",
+      "file_type": "code",
+      "source_file": "astro.config.mjs",
+      "source_location": "L1",
+      "id": "astro_config_mjs",
+      "community": 3,
+      "norm_label": "astro.config.mjs"
+    },
+    {
+      "label": "env.d.ts",
+      "file_type": "code",
+      "source_file": "src/env.d.ts",
+      "source_location": "L1",
+      "id": "src_env_d_ts",
+      "community": 4,
+      "norm_label": "env.d.ts"
+    },
+    {
+      "label": "utils.ts",
+      "file_type": "code",
+      "source_file": "src/lib/utils.ts",
+      "source_location": "L1",
+      "id": "src_lib_utils_ts",
+      "community": 0,
+      "norm_label": "utils.ts"
+    },
+    {
+      "label": "cn()",
+      "file_type": "code",
+      "source_file": "src/lib/utils.ts",
+      "source_location": "L4",
+      "id": "lib_utils_cn",
+      "community": 0,
+      "norm_label": "cn()"
+    },
+    {
+      "label": "ProjectOverlay.jsx",
+      "file_type": "code",
+      "source_file": "src/components/ProjectOverlay.jsx",
+      "source_location": "L1",
+      "id": "src_components_projectoverlay_jsx",
+      "community": 1,
+      "norm_label": "projectoverlay.jsx"
+    },
+    {
+      "label": "ProjectOverlay()",
+      "file_type": "code",
+      "source_file": "src/components/ProjectOverlay.jsx",
+      "source_location": "L3",
+      "id": "components_projectoverlay_projectoverlay",
+      "community": 1,
+      "norm_label": "projectoverlay()"
+    },
+    {
+      "label": "SingleAccordion.tsx",
+      "file_type": "code",
+      "source_file": "src/components/SingleAccordion.tsx",
+      "source_location": "L1",
+      "id": "src_components_singleaccordion_tsx",
+      "community": 5,
+      "norm_label": "singleaccordion.tsx"
+    },
+    {
+      "label": "accordion.tsx",
+      "file_type": "code",
+      "source_file": "src/components/ui/accordion.tsx",
+      "source_location": "L1",
+      "id": "src_components_ui_accordion_tsx",
+      "community": 6,
+      "norm_label": "accordion.tsx"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/utils.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_src": "src_lib_utils_ts",
+      "_tgt": "lib_utils_cn",
+      "source": "src_lib_utils_ts",
+      "target": "lib_utils_cn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ProjectOverlay.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_src": "src_components_projectoverlay_jsx",
+      "_tgt": "components_projectoverlay_projectoverlay",
+      "source": "src_components_projectoverlay_jsx",
+      "target": "components_projectoverlay_projectoverlay",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}
