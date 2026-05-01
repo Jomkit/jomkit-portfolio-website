@@ -38,7 +38,7 @@ Are there other instructions out there for setting up PlatformIO? Yes. Do they c
 Now, you may be wondering why I would subject myself to such pains instead of using the Arduino IDE. Well, the main reason is the Arduino IDE is designed for beginners of all ages and skill levels. This means that a bit of the complexity has been abstracted away to facilitate a smoother user experience. This is great for beginners, and truthfully I don't see any reason why an experienced hobbyist should refrain from it either, or even professionals, though not being one myself I can't speak for all professionals. That being said, from my research, PlatformIO stands out for it's versatility, wide array of frameworks, toolchains, and libraries, and its integration with VSCode. With Arduino IDE you're kind of limited to Arduino boards, but with PlatformIO, you can work with STM32's, ESP32's, and tons more compatible boards. In the end, I've only just started programming with PlatformIO, so only time will tell if it's all it's cracked up to be. Stay tuned for the set-up guide I'll be posting soon!
 
 <section>
-<h2 class="pt-5">Resources</h3>
+<h2 class="pt-5">Resources</h2>
 
 <a class="underline" href="https://dronebotworkshop.com/platformio/" target="_blank" rel="noopener noreferrer">Getting Started with PlatformIO</a>
 <br />

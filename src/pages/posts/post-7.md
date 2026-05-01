@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/BlogPostLayout2.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 title: "CSS Methodologies"
 pubDate: 2025/07/19
 description: "Musings on CSS Methodologies"

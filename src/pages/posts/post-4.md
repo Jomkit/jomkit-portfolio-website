@@ -19,7 +19,7 @@ Early on in my Software Engineering bootcamp I was introduced to software engine
 \
 So it wasn't until my first capstone project that it started clicking why I needed to abstract away logic. I'll try not to bore you with the details but basically I created a flask-powered restaurant app that would let restaurant owners create a menu, handle orders, takeout, and deliveries. 
 
-<h3 class="pt-5>Learning through Experience</h3>
+<h3 class="pt-5">Learning through Experience</h3>
 
 While building the app, I kept a vigilant eye out for optimizations and abstractions that could pave the way to features later down the road. In hindsight, I spent way too much time trying to figure out how to get code to bend to my will without considering if it really needed to. Was five hours spent refactoring a section of code that could be used in many places, but realistically only used once, really worth it?\
 \

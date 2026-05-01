@@ -17,7 +17,7 @@ import Lightbulb from '@/components/Lightbulb.astro';
 				
 				<div id="blurb" class="flex flex-col items-center space-y-4 p-8 fadeInDown delay-500">
 					<div class="w-1/4">
-						<Lightbulb client:load />
+						<Lightbulb />
 					</div>
 					
 					<h3 class="text-center italic">A <span class="font-bold">full-stack software engineer</span> with a global perspective</h3>
@@ -34,14 +34,14 @@ import Lightbulb from '@/components/Lightbulb.astro';
 				<h2>What's New</h2>
 				<p>The two main things I've been up to recently are open source and learning new skills and technologies.</p>
 				<div>
-					<SingleAccordion title="Open Source" expanded={true} client:only>
+					<SingleAccordion title="Open Source" expanded={true} client:load>
 						<div class="space-y-2">
 							<p>Recently I've been dabbling in open-source contributions, and having a whale of a time. Something I didn't realize was how much of a great opportunity it is to learn new technology and practice the software engineering workflow.</p>
 							<p>In this case I had to pick up enough <a class="underline hover:font-bold" href="https://angular.dev/">Angular</a> to start making contributions. Check out the project! It's an open-source idle game: <a class="hover:underline" href="https://glowriftduskhall.felfhenor.com/">Glowrift-Duskhall</a></p>
 						</div>
 					</SingleAccordion>
 
-					<SingleAccordion title="Learning Skills" expanded={true} client:only>
+					<SingleAccordion title="Learning Skills" expanded={true} client:load>
 						<div class="space-y-2">
 							<p>I recently set up PlatformIO on VS Code for microcontroller development. It was a little rough, but I managed to power through and get it set up. Check out my <a href="/posts" class="underline">blog</a> if you're wondering why I chose that over the Arduino IDE, and if you're interested in my experience setting up PlatformIO.</p>
 							<p>Since I am a glutton for torture, I decided if I'm gonna start tinkering with microcontrollers again, I might as well learn C++. Yes that's right, C++ and Java more or less at the same time. I'll explain my philosophy on this another time, but I honestly don't think it's gonna be that much of a problem, and I think there's a lot to learn from both languages for a web developer, or any software engineer for that matter.</p>

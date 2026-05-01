@@ -4,6 +4,9 @@ dist/
 # generated types
 .astro/
 
+# graphify cache
+graphify-out/cache/
+
 # dependencies
 node_modules/
 

@@ -2,26 +2,45 @@
 import Layout from "./Layout.astro";
 
 const {frontmatter} = Astro.props;
----
-<Layout title={frontmatter.title}>
-    <div class="flex justify-center w-full lg:w-3/4">
-        {frontmatter.image.src && 
-            <img src={frontmatter.image.src} alt={frontmatter.image.alt} width="300"></img>
-        }
-    </div>
-    <div class="grid grid-cols-3 items-center justify-between w-full lg:w-3/4 mt-6 text-slate-600">
-        <div>
-            <a href="/posts" class="bg-green-600 active:bg-green-700 text-white py-1 px-2 rounded m-1 lg:ml-0">Back</a>
-        </div>
-        <!-- <h1>{frontmatter.title}</h1> -->
-        <div class="text-center">
-            <p>Written by: {frontmatter.author}</p>
-            <p>First Published: {frontmatter.pubDate.split('/').reverse().join('/')}</p>
-        </div>
-        <div></div>
-    </div>
 
-    <div class="bg-slate-200 p-4 lg:p-8 lg:px-20 rounded lg:w-3/4">
-        <slot />
-    </div>
+const image = frontmatter.image;
+const imageSrc = image?.src && image.src !== "Null" ? image.src : null;
+const pubDate = new Date(frontmatter.pubDate);
+const formattedDate = Number.isNaN(pubDate.getTime())
+    ? frontmatter.pubDate
+    : pubDate.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+    });
+const datetime = Number.isNaN(pubDate.getTime()) ? undefined : pubDate.toISOString();
+---
+<Layout title={frontmatter.title} description={frontmatter.description}>
+    <article class="w-full px-4 py-8">
+        <header class="mx-auto flex w-full max-w-3xl flex-col gap-5">
+            <a href="/posts" class="w-fit rounded bg-blue-700 px-3 py-2 text-base font-semibold text-white hover:bg-blue-800">Back to blog</a>
+            <div class="space-y-3">
+                <h1>{frontmatter.title}</h1>
+                <p class="text-lg text-slate-600">{frontmatter.description}</p>
+                <div class="flex flex-wrap gap-x-3 gap-y-1 text-base text-slate-500">
+                    <span>{frontmatter.author}</span>
+                    <span aria-hidden="true">/</span>
+                    <time datetime={datetime}>{formattedDate}</time>
+                </div>
+            </div>
+
+            {imageSrc && (
+                <img
+                    src={imageSrc}
+                    alt={image?.alt ?? ""}
+                    class="max-h-80 w-full rounded object-contain"
+                    loading="eager"
+                />
+            )}
+        </header>
+
+        <div class="article-prose mt-8">
+            <slot />
+        </div>
+    </article>
 </Layout>

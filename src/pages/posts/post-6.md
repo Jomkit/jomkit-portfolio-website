@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/BlogPostLayout2.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 title: "PlatformIO WSL 2 Setup Guide"
 pubDate: 2025/07/18
 description: "How to set up PlatformIO for VS Code on Windows Subsystem for Linux 2"

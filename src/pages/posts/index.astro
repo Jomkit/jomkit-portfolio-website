@@ -1,45 +1,72 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-interface post {
+interface Post {
     frontmatter: {
         title: string;
         pubDate: string;
+        description?: string;
+        tags?: string[];
     };
     url: string;
 }
 
-const allPosts = Object.values(import.meta.glob<post>('./*.md', { eager: true }))
-    .sort((a: post, b: post): number => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime());
+const formatDate = (dateValue: string) => {
+    const date = new Date(dateValue);
+
+    if (Number.isNaN(date.getTime())) {
+        return dateValue;
+    }
+
+    return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+    });
+};
+
+const getDatetime = (dateValue: string) => {
+    const date = new Date(dateValue);
+    return Number.isNaN(date.getTime()) ? undefined : date.toISOString();
+};
+
+const allPosts = Object.values(import.meta.glob<Post>('./*.md', { eager: true }))
+    .sort((a: Post, b: Post): number => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime());
 ---
 
 <Layout title="Blog">
-    <h1 class="pt-6 text-center">Welcome to My Blog!</h1>
-    <section id="blurb" class="bg-indigo-800 text-white space-y-4 lg:rounded">
-        <p>Here I write about my experiences and thoughts on software development, technology, and personal projects. I hope you find something interesting!</p>
+    <section id="blurb" class="bg-blue-800 text-white">
+        <div class="mx-auto max-w-3xl space-y-4 text-center">
+            <h1>Blog</h1>
+            <p class="text-xl">Notes on software development, tools, learning, and the projects I am using to sharpen my engineering judgment.</p>
+        </div>
     </section>
-    <hr class="lg:w-3/4 lg:m-auto hidden lg:block" />
-    <section class="bg-slate-300 space-y-4">
-        <h2 class="text-3xl font-bold">All Posts</h2>
-        <hr class="border-black" />
-        <ul class="space-y-6 pl-0">
-            <li class="flex flex-row justify-between font-bold ml-0 pl-0">
-                <span>Title</span>
-                <span>Date</span>
-            </li>
-        {allPosts.map((post: any, i) => 
-            <li class="flex flex-row justify-between ml-0 pl-0">
-                <a href={post.url} class="text-blue-800 hover:underline">{post.frontmatter.title}</a>
-                <span>{post.frontmatter.pubDate.split('/').reverse().join('/')}</span>
-            </li>
-        )}
+    <section class="bg-slate-100">
+        <div class="mx-auto flex w-full max-w-4xl flex-col gap-5">
+            <h2>All Posts</h2>
+            <ul class="grid gap-4 pl-0">
+                {allPosts.map((post) => (
+                    <li class="ml-0 list-none rounded border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+                        <a href={post.url} class="block space-y-3">
+                            <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                                <h3 class="text-2xl font-semibold text-blue-800">{post.frontmatter.title}</h3>
+                                <time class="shrink-0 text-base text-slate-500" datetime={getDatetime(post.frontmatter.pubDate)}>
+                                    {formatDate(post.frontmatter.pubDate)}
+                                </time>
+                            </div>
+                            {post.frontmatter.description && (
+                                <p class="text-lg text-slate-700">{post.frontmatter.description}</p>
+                            )}
+                            {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
+                                <div class="flex flex-wrap gap-2">
+                                    {post.frontmatter.tags.map((tag) => (
+                                        <span class="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-600">{tag}</span>
+                                    ))}
+                                </div>
+                            )}
+                        </a>
+                    </li>
+                ))}
         </ul>
+        </div>
     </section>
-
-
 </Layout>
-
-<style>
-    h2 {
-        text-align: center;
-    }
-</style>

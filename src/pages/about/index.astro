@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Image from 'astro/components/Image.astro';
+import { Image } from 'astro:assets';
 import jomkit1 from '../../images/jomkit1.jpg';
 import { SingleAccordion } from '@/components/SingleAccordion';
 
@@ -20,7 +20,7 @@ const goalsUrl = "https://github.com/Jomkit/personal-goals";
                 <div class="mt-2 space-y-4">
                     <p>Hi, thanks for visiting my website! My name is Jomkit, and I'm a software developer currently based in the United States, in the state of Maine 🦞.</p>
                     
-                    <SingleAccordion title='[expand]' expanded={true} client:only="react">
+                    <SingleAccordion title='[expand]' expanded={true} client:load>
                         <div class="space-y-4">
                             <p>I learned fundamental software engineering principles and methodologies from the online bootcamp, Springboard. I participated remotely from August 2023, and graduated in August 2024.</p>
                             <p>I've had the pleasure of trying out plenty of new and exciting technologies, including Google Cloud Platform, Docker, and Next.js, sometimes for work and sometimes for personal exploration.
@@ -58,7 +58,7 @@ const goalsUrl = "https://github.com/Jomkit/personal-goals";
                     </SingleAccordion>
                     
                     <div class="space-y-2">
-                        <divx>
+                        <div>
                             <h2 id="goals">Personal Goals</h2>
                             <p>A list of things I want to accomplish.</p>
                             <p>I also have a more in-depth github repository for personal goals: <a class="hover:underline font-semibold" href={goalsUrl} target="_blank" rel="noopener noreferrer">Jomkit's Personal Goals</a></p>

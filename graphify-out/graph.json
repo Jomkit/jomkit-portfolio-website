@@ -9,7 +9,7 @@
       "source_file": "tailwind.config.mjs",
       "source_location": "L1",
       "id": "tailwind_config_mjs",
-      "community": 2,
+      "community": 3,
       "norm_label": "tailwind.config.mjs"
     },
     {
@@ -18,7 +18,7 @@
       "source_file": "astro.config.mjs",
       "source_location": "L1",
       "id": "astro_config_mjs",
-      "community": 3,
+      "community": 4,
       "norm_label": "astro.config.mjs"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "src/env.d.ts",
       "source_location": "L1",
       "id": "src_env_d_ts",
-      "community": 4,
+      "community": 5,
       "norm_label": "env.d.ts"
     },
     {
@@ -61,7 +61,7 @@
       "label": "ProjectOverlay()",
       "file_type": "code",
       "source_file": "src/components/ProjectOverlay.jsx",
-      "source_location": "L3",
+      "source_location": "L1",
       "id": "components_projectoverlay_projectoverlay",
       "community": 1,
       "norm_label": "projectoverlay()"
@@ -72,8 +72,17 @@
       "source_file": "src/components/SingleAccordion.tsx",
       "source_location": "L1",
       "id": "src_components_singleaccordion_tsx",
-      "community": 5,
+      "community": 2,
       "norm_label": "singleaccordion.tsx"
+    },
+    {
+      "label": "SingleAccordion()",
+      "file_type": "code",
+      "source_file": "src/components/SingleAccordion.tsx",
+      "source_location": "L15",
+      "id": "components_singleaccordion_singleaccordion",
+      "community": 2,
+      "norm_label": "singleaccordion()"
     },
     {
       "label": "accordion.tsx",
@@ -102,12 +111,24 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/components/ProjectOverlay.jsx",
-      "source_location": "L3",
+      "source_location": "L1",
       "weight": 1.0,
       "_src": "src_components_projectoverlay_jsx",
       "_tgt": "components_projectoverlay_projectoverlay",
       "source": "src_components_projectoverlay_jsx",
       "target": "components_projectoverlay_projectoverlay",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SingleAccordion.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_src": "src_components_singleaccordion_tsx",
+      "_tgt": "components_singleaccordion_singleaccordion",
+      "source": "src_components_singleaccordion_tsx",
+      "target": "components_singleaccordion_singleaccordion",
       "confidence_score": 1.0
     }
   ],

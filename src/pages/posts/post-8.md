@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/BlogPostLayout2.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 title: "LLM and I"
 pubDate: 2025/07/26
 description: "My thoughts on LLM's and Web Development"

@@ -1,124 +1,38 @@
 ---
 import { ClientRouter } from 'astro:transitions';
-import { fade } from 'astro:transitions';
 import Header from './Header.astro';
 import Footer from './Footer.astro';
+import '../index.css';
 
 interface Props {
 	title: string;
-	altTitle?: string | null;
+	description?: string;
 }
 
-const { title } = Astro.props;
-const websiteDescription = 'Portfolio website for Jomkit Jujaroen, full-stack software engineer and web developer';
+const {
+	title,
+	description = 'Portfolio website for Jomkit Jujaroen, full-stack software engineer and web developer',
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" transition:name="root" transition:animate="none">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content={websiteDescription} />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
-		<ClientRouter fallback='swap' />
+		<ClientRouter fallback="swap" />
 		<link rel="icon" type="image/svg+xml" href="/jj_logo_no_bg.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-[--primary-color] flex flex-col h-[100vh]">
+	<body class="flex min-h-screen flex-col bg-background text-foreground">
 		<Header />
 
-		<main class="flex flex-col items-center space-y-4">
+		<main class="flex flex-1 flex-col items-center space-y-4">
 			<slot />
 		</main>
 		
 		<Footer />
 	</body>
 </html>
-<style is:global>
-	:root {
-		--primary-color: white;
-		--secondary-color: #007BFF;
-		--dark-color: #333333;
-
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-
-	/*
-		Josh's Custom CSS Reset
-		https://www.joshwcomeau.com/css/custom-css-reset/
-	*/
-
-	*, *::before, *::after {
-	box-sizing: border-box;
-	}
-
-	* {
-	margin: 0;
-	}
-
-	@media (prefers-reduced-motion: no-preference) {
-	html {
-		interpolate-size: allow-keywords;
-	}
-	}
-
-	body {
-	line-height: 1.5;
-	-webkit-font-smoothing: antialiased;
-	}
-
-	img, picture, video, canvas, svg {
-	display: block;
-	max-width: 100%;
-	}
-
-	input, button, textarea, select {
-	font: inherit;
-	}
-
-	p, h1, h2, h3, h4, h5, h6 {
-	overflow-wrap: break-word;
-	}
-
-	p {
-	text-wrap: pretty;
-	}
-	h1, h2, h3, h4, h5, h6 {
-	text-wrap: balance;
-	}
-
-	#root, #__next {
-	isolation: isolate;
-	}
-
-	/* END */
-	
-	html {
-		font-family: system-ui, sans-serif;
-	}
-
-	h1 {
-		@apply text-6xl font-bold;
-	}
-
-	h2 {
-		@apply text-3xl font-bold;
-	}
-
-	h3 {
-		@apply text-2xl;
-	}
-
-	section {
-		@apply w-full lg:w-3/4 px-6 lg:px-16 py-10 space-y-6 m-auto flex flex-col;
-	}
-
-	p {
-		@apply text-xl;
-	}
-</style>

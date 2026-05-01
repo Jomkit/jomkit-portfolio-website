@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/BlogPostLayout2.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 title: "Typing as a Skill"
 pubDate: 2025/08/08
 description: "My ramblings on the importance of typing"

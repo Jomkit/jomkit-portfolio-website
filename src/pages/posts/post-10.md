@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/BlogPostLayout2.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 title: "An Argument for Vibe Coding"
 pubDate: 2025/08/15
 description: "The difference between an LLM and a junior software engineer is the ability to think critically"
