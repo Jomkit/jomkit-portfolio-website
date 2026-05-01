@@ -9,13 +9,13 @@ const goalsUrl = "https://github.com/Jomkit/personal-goals";
 <Layout title="About">
     <h1 class="pt-6 text-center">About Me</h1>
     
-    <section class="items-center bg-indigo-400 mb-6">
+    <section class="mb-6 items-center bg-indigo-400 dark:bg-muted">
         <div class="flex flex-col items-center space-y-8">
             
             <div class="w-1/2 flex items-start justify-center">
-                <Image src={jomkit1} alt="about profile picture" width={400} class="border-4 border-white" />
+                <Image src={jomkit1} alt="about profile picture" width={400} class="border-4 border-white dark:border-border" />
             </div>
-            <div class="bg-white m-auto mt-0 p-6 border-4 border-black">
+            <div class="m-auto mt-0 border-4 border-black bg-white p-6 dark:border-border dark:bg-card dark:text-card-foreground">
                 <h2>At a glance...</h2>
                 <div class="mt-2 space-y-4">
                     <p>Hi, thanks for visiting my website! My name is Jomkit, and I'm a software developer currently based in the United States, in the state of Maine 🦞.</p>
@@ -52,7 +52,7 @@ const goalsUrl = "https://github.com/Jomkit/personal-goals";
                             <p>As an engineer, I love learning how things work. I've always been passionate about building things. As a kid I was at my most focused when I was putting together Star Wars lego sets, and as I grew older that turned into making cosplay, assembling Gundam model kits, and ultimately led me to the Rochester Institute of Technology for a bachelors in Electrical/Mechanical Engineering Technology.</p>
                             
                             <h3>My Current Hobbies</h3>
-                            <a href="/about/hobbies" class="underline hover:text-blue-500">Learn more...</a>
+                            <a href="/about/hobbies" class="underline hover:text-blue-500 dark:text-primary dark:hover:text-accent">Learn more...</a>
                             <p>On the hobby side I've been doing a lot of axe throwing. I love trying different things and exploring new industries because I believe that creative solutions lie at the intersection of unexpected topics.</p>
                         </div>
                     </SingleAccordion>

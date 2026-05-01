@@ -9,7 +9,7 @@ import fab from '../../images/fab.png';
 <Layout title="Work">
     <h1 class="pt-6 text-center">Work</h1>
 
-    <section class="bg-indigo-800 text-white">
+    <section class="bg-indigo-800 text-white dark:bg-card dark:text-card-foreground">
         <h2>Work Experience</h2>
         
         <div class="grid lg:grid-cols-2 gap-x-12">
@@ -21,12 +21,12 @@ import fab from '../../images/fab.png';
             </div>
             <div>
                 <ProjectOverlay client:load>
-                    <Image src={risatech} alt="risatech.ai welcome page" class="rounded border-2 border-white" />
+                    <Image src={risatech} alt="risatech.ai welcome page" class="rounded border-2 border-white dark:border-border" />
                 </ProjectOverlay>
             </div>
         </div>
 
-        <hr class="border-t-2 border-black my-4 w-full" />
+        <hr class="my-4 w-full border-t-2 border-black dark:border-border" />
         
         <div class="grid lg:grid-cols-2 gap-x-12">
             <div>
@@ -37,13 +37,13 @@ import fab from '../../images/fab.png';
             </div>
             <div>
                 <ProjectOverlay client:load>
-                    <Image src={fab} alt="foxallenbindery landing page" class="rounded border-2 border-white" />
+                    <Image src={fab} alt="foxallenbindery landing page" class="rounded border-2 border-white dark:border-border" />
                 </ProjectOverlay>
             </div>
         </div>
     </section>
 
-    <section class="bg-slate-300">
+    <section class="bg-slate-300 dark:bg-muted dark:text-foreground">
         <h2>Personal Projects</h2>
 
         <div class="flex flex-col space-y-4">

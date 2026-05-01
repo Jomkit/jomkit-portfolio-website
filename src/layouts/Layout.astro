@@ -21,6 +21,85 @@ const {
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
+		<script is:inline>
+			(() => {
+				const storageKey = "portfolio-theme";
+				const isTheme = (theme) => theme === "light" || theme === "dark";
+				const getStoredTheme = () => {
+					try {
+						return localStorage.getItem(storageKey);
+					} catch {
+						return null;
+					}
+				};
+				const storeTheme = (theme) => {
+					try {
+						localStorage.setItem(storageKey, theme);
+					} catch {
+						return;
+					}
+				};
+				const getSystemTheme = () => window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+				const resolveTheme = (theme) => {
+					if (isTheme(theme)) {
+						return theme;
+					}
+
+					const storedTheme = getStoredTheme();
+					return isTheme(storedTheme) ? storedTheme : getSystemTheme();
+				};
+				const updateButtons = (theme, targetDocument = document) => {
+					targetDocument.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+						button.setAttribute("aria-pressed", String(theme === "dark"));
+						button.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+						button.querySelector(".theme-toggle__sun")?.classList.toggle("hidden", theme === "dark");
+						button.querySelector(".theme-toggle__moon")?.classList.toggle("hidden", theme !== "dark");
+					});
+				};
+				const applyTheme = (theme, targetDocument = document) => {
+					const resolvedTheme = resolveTheme(theme);
+					targetDocument.documentElement.classList.toggle("dark", resolvedTheme === "dark");
+					updateButtons(resolvedTheme, targetDocument);
+					return resolvedTheme;
+				};
+				const setTheme = (theme) => {
+					const resolvedTheme = resolveTheme(theme);
+					storeTheme(resolvedTheme);
+					return applyTheme(resolvedTheme);
+				};
+				const getCurrentTheme = () => document.documentElement.classList.contains("dark") ? "dark" : "light";
+
+				window.portfolioTheme = {
+					applyTheme,
+					getCurrentTheme,
+					setTheme,
+				};
+
+				applyTheme();
+
+				if (!window.portfolioThemeReady) {
+					window.portfolioThemeReady = true;
+
+					document.addEventListener("click", (event) => {
+						const target = event.target instanceof Element ? event.target : null;
+						const button = target?.closest("[data-theme-toggle]");
+
+						if (!button) {
+							return;
+						}
+
+						const nextTheme = getCurrentTheme() === "dark" ? "light" : "dark";
+						setTheme(nextTheme);
+					});
+					document.addEventListener("astro:before-swap", (event) => {
+						applyTheme(undefined, event.newDocument);
+					});
+					document.addEventListener("astro:page-load", () => {
+						applyTheme();
+					});
+				}
+			})();
+		</script>
 		<ClientRouter fallback="swap" />
 		<link rel="icon" type="image/svg+xml" href="/jj_logo_no_bg.svg" />
 		<meta name="generator" content={Astro.generator} />
