@@ -403,18 +403,20 @@ The site can be considered at V2 when:
 
 ## High-Level Milestone Checklist
 
-- [ ] Finalize V2 information architecture and page priorities
-- [ ] Simplify header navigation and lock the final route disposition for Services, Resources, and Hobbies
-- [ ] Rewrite homepage content and section order around a clear visitor funnel
-- [ ] Rebuild Work into a stronger portfolio or case-study page
-- [ ] Tighten About and Contact so they support conversion
-- [ ] Move project metadata into one shared content source consumed by Home and Work
+- [x] Finalize V2 information architecture and page priorities
+- [x] Simplify header navigation and lock the final route disposition for Services, Resources, and Hobbies
+- [x] Rewrite homepage content and section order around a clear visitor funnel
+- [x] Rebuild Work into a stronger portfolio or case-study page
+- [x] Tighten About and Contact so they support conversion
+- [x] Move project metadata into one shared content source consumed by Home and Work
 - [ ] Update written content across Home, Work, About, Contact, Resources, and Hobbies so the copy matches the new V2 structure and tone
-- [ ] Unpublish Services unless it is fully ready as a live route
-- [ ] Strengthen Hobbies and Resources as intentional secondary destinations
-- [ ] Introduce only the minimum reusable section and card patterns needed for cleaner page composition
-- [ ] Refresh typography, spacing, and hierarchy to better distinguish page intent
-- [ ] Run final responsiveness, accessibility, and content QA pass
+- [x] Unpublish Services unless it is fully ready as a live route
+- [x] Strengthen Hobbies and Resources as intentional secondary destinations
+- [x] Introduce only the minimum reusable section and card patterns needed for cleaner page composition
+- [x] Refresh typography, spacing, and hierarchy to better distinguish page intent
+- [ ] Optimize page structure, metadata, and internal linking for SEO
+- [ ] Run a dedicated accessibility pass across navigation, content, contrast, semantics, and keyboard behavior
+- [ ] Run final responsiveness, SEO, accessibility, and content QA pass
 
 ## Acceptance Criteria
 
@@ -428,6 +430,8 @@ V2 is complete only when all of the following are true:
 - the homepage no longer contains full standalone Hobbies or Services sections that compete with the professional funnel
 - project summaries shown on the homepage are derived from the same canonical project data source as `/work`
 - the written content on Home, Work, About, Contact, Resources, and Hobbies has been reviewed and updated so it matches the final V2 hierarchy, tone, and page purpose
+- page titles, descriptions, heading structure, and internal linking have been reviewed and updated to support V2 SEO goals
+- the live V2 pages meet the intended accessibility bar for semantic structure, keyboard access, color contrast, and non-visual clarity
 - mobile navigation, desktop navigation, and theme toggle behavior continue to function after navigation changes
 - the site contains no broken internal links after route and content consolidation
 
@@ -439,6 +443,8 @@ V2 is complete only when all of the following are true:
 - verify that Home, Work, About, and Contact do not repeat long-form content that belongs to another page
 - verify that shared project data powers both Home and Work without forcing identical page layouts
 - review the final copy on Home, Work, About, Contact, Resources, and Hobbies to confirm the content matches the intended V2 positioning and does not preserve stale pre-V2 messaging
+- review page titles, descriptions, heading hierarchy, and internal links across all live V2 pages for SEO consistency
+- verify keyboard navigation, focus states, semantic heading order, link clarity, and color contrast across all live V2 pages
 - run the production build and resolve any route, asset, or layout regressions before considering V2 complete
 
 ## Suggested Implementation Order
@@ -452,4 +458,5 @@ V2 is complete only when all of the following are true:
 7. Resolve Services, Resources, and Hobbies.
 8. Update written content across all live V2 pages.
 9. Apply shared design and content pattern cleanup.
-10. Finish with QA and content polish.
+10. Optimize SEO and accessibility across all live V2 pages.
+11. Finish with QA and content polish.
