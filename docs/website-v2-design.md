@@ -409,6 +409,7 @@ The site can be considered at V2 when:
 - [ ] Rebuild Work into a stronger portfolio or case-study page
 - [ ] Tighten About and Contact so they support conversion
 - [ ] Move project metadata into one shared content source consumed by Home and Work
+- [ ] Update written content across Home, Work, About, Contact, Resources, and Hobbies so the copy matches the new V2 structure and tone
 - [ ] Unpublish Services unless it is fully ready as a live route
 - [ ] Strengthen Hobbies and Resources as intentional secondary destinations
 - [ ] Introduce only the minimum reusable section and card patterns needed for cleaner page composition
@@ -426,6 +427,7 @@ V2 is complete only when all of the following are true:
 - `/resources` remains live only as a clearly secondary route and is not shown in the primary header navigation
 - the homepage no longer contains full standalone Hobbies or Services sections that compete with the professional funnel
 - project summaries shown on the homepage are derived from the same canonical project data source as `/work`
+- the written content on Home, Work, About, Contact, Resources, and Hobbies has been reviewed and updated so it matches the final V2 hierarchy, tone, and page purpose
 - mobile navigation, desktop navigation, and theme toggle behavior continue to function after navigation changes
 - the site contains no broken internal links after route and content consolidation
 
@@ -436,6 +438,7 @@ V2 is complete only when all of the following are true:
 - manually verify that `/services` is either unpublished or fully rewritten before release
 - verify that Home, Work, About, and Contact do not repeat long-form content that belongs to another page
 - verify that shared project data powers both Home and Work without forcing identical page layouts
+- review the final copy on Home, Work, About, Contact, Resources, and Hobbies to confirm the content matches the intended V2 positioning and does not preserve stale pre-V2 messaging
 - run the production build and resolve any route, asset, or layout regressions before considering V2 complete
 
 ## Suggested Implementation Order
@@ -447,5 +450,6 @@ V2 is complete only when all of the following are true:
 5. Strengthen Work.
 6. Tighten About and Contact.
 7. Resolve Services, Resources, and Hobbies.
-8. Apply shared design and content pattern cleanup.
-9. Finish with QA and content polish.
+8. Update written content across all live V2 pages.
+9. Apply shared design and content pattern cleanup.
+10. Finish with QA and content polish.
