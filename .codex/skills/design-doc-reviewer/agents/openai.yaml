@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Doc Reviewer"
+  short_description: "Senior-level contract hardening for design docs and RFCs"
+  default_prompt: "Use $design-doc-reviewer to review this design doc for ambiguity, weak contracts, and missing guardrails, then propose hardened replacement language."

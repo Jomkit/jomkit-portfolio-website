@@ -31,6 +31,24 @@
       "norm_label": "env.d.ts"
     },
     {
+      "label": "projects.ts",
+      "file_type": "code",
+      "source_file": "src/lib/projects.ts",
+      "source_location": "L1",
+      "id": "src_lib_projects_ts",
+      "community": 6,
+      "norm_label": "projects.ts"
+    },
+    {
+      "label": "navigation.ts",
+      "file_type": "code",
+      "source_file": "src/lib/navigation.ts",
+      "source_location": "L1",
+      "id": "src_lib_navigation_ts",
+      "community": 7,
+      "norm_label": "navigation.ts"
+    },
+    {
       "label": "utils.ts",
       "file_type": "code",
       "source_file": "src/lib/utils.ts",
@@ -90,7 +108,7 @@
       "source_file": "src/components/ui/accordion.tsx",
       "source_location": "L1",
       "id": "src_components_ui_accordion_tsx",
-      "community": 6,
+      "community": 8,
       "norm_label": "accordion.tsx"
     }
   ],

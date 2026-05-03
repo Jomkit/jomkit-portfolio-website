@@ -4,29 +4,35 @@ import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout title="resources">
-    <h1 class="pt-6 text-center">Resources</h1>
+    <section class="bg-slate-100 dark:bg-muted">
+        <div class="max-w-3xl space-y-4">
+            <p class="text-sm uppercase tracking-[0.3em] text-slate-500 dark:text-muted-foreground">Resources</p>
+            <h1>References I keep coming back to</h1>
+            <p>
+                This is a secondary page on purpose: a small collection of learning resources that have been useful for
+                sharpening specific skills and technical judgment.
+            </p>
+        </div>
+    </section>
 
-    <section class="items-center rounded border-8 border-double border-black bg-background dark:border-border dark:bg-card dark:text-card-foreground">
-        <h3>Here are some things that have helped me out recently.</h3>
-        <div class="w-3/4">
+    <section class="rounded border-8 border-double border-black bg-background dark:border-border dark:bg-card dark:text-card-foreground">
+        <div class="grid gap-6 lg:grid-cols-2">
             <div>
                 <h3 class="font-semibold">Great Frontend</h3>
-                <p>Great Frontend is pretty self-explanatory, it's a great resource to brush up on frontend skills and knowledge for interviewing. They have a lot of blog posts and refreshers for frontend technologies, such as React. I was looking for React refreshers when I found this website.</p>
-                <p>Link: <a class="underline" href="https://www.greatfrontend.com/" target="_blank" rel="noopener noreferrer">greatfrontend.com</a></p>
+                <p class="mt-2">A strong resource for refreshing front-end fundamentals, practicing interviews, and seeing React and browser concepts explained clearly.</p>
+                <p class="mt-3">Link: <a class="underline" href="https://www.greatfrontend.com/" target="_blank" rel="noopener noreferrer">greatfrontend.com</a></p>
             </div>
             <div>
                 <h3 class="font-semibold">Java</h3>
-                <p>The University of Helsinki's Massive Open Online Course (MOOC), specifically their <a class="underline" href="https://java-programming.mooc.fi/" target="_blank" rel="noopener noreferrer">Java Programming</a> course.</p>
+                <p class="mt-2">The University of Helsinki's <a class="underline" href="https://java-programming.mooc.fi/" target="_blank" rel="noopener noreferrer">Java Programming</a> course is the main structured resource I use when I want rigor and repetition.</p>
             </div>
             <div>
                 <h3 class="font-semibold">C++</h3>
-                <p>The <a class="underline" href="https://www.learncpp.com/" target="_blank" rel="noopener noreferrer">Learn C++</a> website.</p>
-                <p class="pl-5 text-lg">This resource is great because it explains C++ concepts in a beginner-friendly way while still offering valuable insights for those with experience in higher-level languages like JavaScript or Python, especially about how languages work and compile down.</p>
-                
+                <p class="mt-2">The <a class="underline" href="https://www.learncpp.com/" target="_blank" rel="noopener noreferrer">Learn C++</a> site is especially useful because it meets beginners where they are while still explaining how lower-level language mechanics actually work.</p>
             </div>
             <div>
                 <h3 class="font-semibold">PlatformIO</h3>
-                <p><a class="underline" href="https://platformio.org/" target="_blank" rel="noopener noreferrer">PlatformIO</a> is an open-source ecosystem for embedded software development. In their own words: "Your Gateway to Embedded Software Development Excellence."</p>
+                <p class="mt-2"><a class="underline" href="https://platformio.org/" target="_blank" rel="noopener noreferrer">PlatformIO</a> has been my preferred entry point for embedded experimentation because it feels much closer to the tooling expectations I already have from web development.</p>
             </div>
         </div>
     </section>

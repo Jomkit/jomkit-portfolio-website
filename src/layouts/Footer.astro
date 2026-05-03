@@ -1,13 +1,21 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { SECONDARY_NAV } from '../lib/navigation';
 
 const linkedInUrl = "https://www.linkedin.com/in/jomkit-jujaroen/";
 const github = "https://github.com/Jomkit";
 ---
-<footer class="mt-auto flex w-full flex-col items-center space-y-2 bg-gray-800 p-4 text-center text-white dark:border-t dark:border-border dark:bg-card dark:text-card-foreground">
-    <p class="text-sm lg:text-2xl">Copyright &#169; 2025 | Powered by AstroJS | Website Design by Jomkit Jujaroen</p>
-    <div class="flex flex-row space-x-2 text-2xl">
-        <a href={github} target="_blank" rel="noopener noreferrer"><Icon name="bx:bxl-github" /></a>
-        <a href={linkedInUrl} target="_blank" rel="noopener noreferrer"><Icon name="bx:bxl-linkedin-square" /></a>
+<footer class="mt-auto w-full bg-gray-800 p-6 text-center text-white dark:border-t dark:border-border dark:bg-card dark:text-card-foreground">
+    <div class="mx-auto flex w-full max-w-5xl flex-col items-center gap-4">
+        <nav aria-label="Secondary" class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm uppercase tracking-[0.2em] text-white/75 dark:text-muted-foreground">
+            {SECONDARY_NAV.map((link) => (
+                <a class="transition hover:text-white dark:hover:text-card-foreground" href={link.href}>{link.label}</a>
+            ))}
+        </nav>
+        <div class="flex flex-row space-x-3 text-2xl">
+            <a aria-label="GitHub profile" href={github} target="_blank" rel="noopener noreferrer"><Icon name="bx:bxl-github" /></a>
+            <a aria-label="LinkedIn profile" href={linkedInUrl} target="_blank" rel="noopener noreferrer"><Icon name="bx:bxl-linkedin-square" /></a>
+        </div>
+        <p class="text-sm lg:text-base">Copyright &#169; 2025 | Powered by AstroJS | Website Design by Jomkit Jujaroen</p>
     </div>
 </footer>

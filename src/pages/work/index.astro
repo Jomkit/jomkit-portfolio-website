@@ -2,70 +2,136 @@
 import Layout from '../../layouts/Layout.astro';
 import ProjectOverlay from '../../components/ProjectOverlay';
 import { Image } from 'astro:assets';
-import risatech from '../../images/risatech-welcome.png';
-import fab from '../../images/fab.png';
+import { PROJECTS } from '../../lib/projects';
+
+const professionalProjects = PROJECTS.filter((project) => project.scope === 'professional');
+const personalProjects = PROJECTS.filter((project) => project.scope === 'personal');
 ---
 
 <Layout title="Work">
-    <h1 class="pt-6 text-center">Work</h1>
+    <section class="bg-blue-800 text-white dark:bg-card dark:text-card-foreground">
+        <div class="section-heading">
+            <p class="eyebrow text-blue-100 dark:text-muted-foreground">Work</p>
+            <h1>Selected work across product engineering and bespoke websites</h1>
+            <p class="max-w-3xl text-lg text-blue-100 dark:text-muted-foreground">
+                This page is the canonical view of my project experience. It combines client work, product-facing
+                engineering, and personal builds that show how I think through implementation and presentation.
+            </p>
+        </div>
+    </section>
 
-    <section class="bg-indigo-800 text-white dark:bg-card dark:text-card-foreground">
-        <h2>Work Experience</h2>
-        
-        <div class="grid lg:grid-cols-2 gap-x-12">
-            <div>
-                <h3>full-Stack Software Engineer</h3>
-                <p><i>October 2024 - March 2025</i></p>
-                <p><a href="https://risatech.ai/">risatech.ai</a></p>
-                <p>At risatech.ai I had unique opportunity of being part of a rapidly developing start-up environment. I was in charge of adding several new features to our flagship app, risatech.ai, an hospitality app that leveraged AI agents to empower hotel owners and hotel managers to save time, save money, and increase value.</p>
-            </div>
-            <div>
-                <ProjectOverlay client:load>
-                    <Image src={risatech} alt="risatech.ai welcome page" class="rounded border-2 border-white dark:border-border" />
-                </ProjectOverlay>
-            </div>
+    <section class="bg-white dark:bg-background">
+        <div class="section-heading">
+            <p class="eyebrow">Professional Work</p>
+            <h2>Client and product work with clear ownership</h2>
         </div>
 
-        <hr class="my-4 w-full border-t-2 border-black dark:border-border" />
-        
-        <div class="grid lg:grid-cols-2 gap-x-12">
-            <div>
-                <h3>Full-Stack Web Developer</h3>
-                <p><i>September 2024 - Present</i></p>
-                <p><a href="https://foxallenbindery.com/">Fox Allen Bindery</a></p>
-                <p>As a freelance web developer, I worked closely with this client to build a personalized portfolio website to showcase their expertise and skill in book binding, as well as giving their customers a way to interact and reach out to them for classes and comissions.</p>
+        <div class="grid gap-6">
+            {professionalProjects.map((project) => (
+                <article class="grid gap-6 rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm dark:border-border dark:bg-card lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-sm uppercase tracking-[0.2em] text-slate-500 dark:text-muted-foreground">{project.period}</p>
+                            <h3 class="mt-2 font-semibold text-blue-800 dark:text-primary">{project.title}</h3>
+                            <p class="text-lg">{project.role}</p>
+                        </div>
+                        <p>{project.summary}</p>
+                        <div class="flex flex-wrap gap-2">
+                            {project.technologies.map((technology) => (
+                                <span class="rounded-full bg-white px-3 py-1 text-sm font-medium text-slate-700 dark:bg-background dark:text-muted-foreground">
+                                    {technology}
+                                </span>
+                            ))}
+                        </div>
+                        {project.externalUrl && (
+                            <a class="inline-flex rounded-full border border-blue-800 px-4 py-2 text-sm font-semibold text-blue-800 transition hover:bg-blue-800 hover:text-white dark:border-primary dark:text-primary dark:hover:bg-primary dark:hover:text-primary-foreground" href={project.externalUrl} target="_blank" rel="noopener noreferrer">
+                                Visit project
+                            </a>
+                        )}
+                    </div>
+                    <div>
+                        {project.image && (
+                            <ProjectOverlay header={project.homeOverlayTitle ?? project.title} footer={project.homeOverlayBody ?? project.summary} url={project.externalUrl} client:load>
+                                <Image src={project.image} alt={project.imageAlt ?? project.title} class="rounded-xl" />
+                            </ProjectOverlay>
+                        )}
+                    </div>
+                </article>
+            ))}
+        </div>
+    </section>
+
+    <section class="bg-slate-100 dark:bg-muted dark:text-foreground">
+        <div class="section-heading">
+            <p class="eyebrow">Personal Projects</p>
+            <h2>Projects I use to sharpen product and engineering judgment</h2>
+        </div>
+
+        <div class="grid gap-4 lg:grid-cols-2">
+            {personalProjects.map((project) => (
+                <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-border dark:bg-card">
+                    <p class="text-sm uppercase tracking-[0.2em] text-slate-500 dark:text-muted-foreground">{project.period}</p>
+                    <h3 class="mt-2 font-semibold text-blue-800 dark:text-primary">{project.title}</h3>
+                    <p class="mt-1 text-base">{project.role}</p>
+                    <p class="mt-4">{project.summary}</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        {project.technologies.map((technology) => (
+                            <span class="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700 dark:bg-background dark:text-muted-foreground">
+                                {technology}
+                            </span>
+                        ))}
+                    </div>
+                </article>
+            ))}
+        </div>
+    </section>
+
+    <section class="bg-white dark:bg-background">
+        <div class="section-heading">
+            <p class="eyebrow">How I Work</p>
+            <h2>Clear structure, sharp communication, and maintainable execution</h2>
+            <p>
+                I do my best work where product thinking, implementation quality, and interface clarity all matter at
+                the same time.
+            </p>
+        </div>
+        <div class="grid gap-4 md:grid-cols-3">
+            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-border dark:bg-card">
+                <h3 class="font-semibold">Understand the real constraint</h3>
+                <p class="mt-2">I like tracing problems to the actual ownership seam before changing code or UI.</p>
             </div>
-            <div>
-                <ProjectOverlay client:load>
-                    <Image src={fab} alt="foxallenbindery landing page" class="rounded border-2 border-white dark:border-border" />
-                </ProjectOverlay>
+            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-border dark:bg-card">
+                <h3 class="font-semibold">Keep the solution coherent</h3>
+                <p class="mt-2">I prefer one clear path over scattered fixes that work individually but drift together.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-border dark:bg-card">
+                <h3 class="font-semibold">Build for the next change</h3>
+                <p class="mt-2">I care about leaving behind a structure that makes the next iteration easier to trust.</p>
             </div>
         </div>
     </section>
 
-    <section class="bg-slate-300 dark:bg-muted dark:text-foreground">
-        <h2>Personal Projects</h2>
-
-        <div class="flex flex-col space-y-4">
-            <div>
-                <h3>Portfolio Website</h3>
-                <p><i>Present</i></p>
-                <p>This website is built using Astro, a modern static site generator that allows for fast and efficient web development. It showcases my skills, projects, and experience as a software engineer.</p>
-                <p><b>Technologies:</b> AstroJS, React, TypeScript, TailwindCSS</p>
-            </div>
-            <div>
-                <h3>Productivity Buddy</h3>
-                <p><i>August 2024 - September 2024</i></p>
-                <p>My second capstone project as part of the Springboard Software Engineering Career Track, Productivity Buddy is a pomodoro app that leverages mindfulness check-ins to map out the most productive periods in a week for a user and inform them of their study habits so that they may optimize their learning or productivity.</p>
-                <p><b>Technologies:</b> React.js, TypeScript, Tailwind CSS, PostgreSQL, Express.js, Node.js, Vite, Project Management, Database Design</p>
-
-            </div>
+    <section class="bg-blue-800 text-white dark:bg-card dark:text-card-foreground">
+        <div class="section-heading">
+            <p class="eyebrow text-blue-100 dark:text-muted-foreground">Contact</p>
+            <h2>Interested in working together</h2>
+            <p class="text-blue-100 dark:text-muted-foreground">
+                If you are looking for someone who can think through both product details and implementation seams, I
+                would be glad to connect.
+            </p>
         </div>
+        <a class="inline-flex w-fit rounded-full bg-white px-5 py-3 text-sm font-semibold text-blue-800 transition hover:bg-blue-100 dark:bg-primary dark:text-primary-foreground dark:hover:bg-accent" href="/contact">
+            Contact me
+        </a>
     </section>
 </Layout>
 
 <style>
-    a:hover {
-        @apply font-semibold underline italic;
+    .section-heading {
+        @apply max-w-3xl space-y-3;
+    }
+
+    .eyebrow {
+        @apply text-sm uppercase tracking-[0.3em] text-slate-500 dark:text-muted-foreground;
     }
 </style>

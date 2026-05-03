@@ -3,20 +3,45 @@ import Layout from "../../layouts/Layout.astro";
 
 ---
 <Layout title="hobbies">
-    <section class="bg-indigo-400 dark:bg-muted dark:text-foreground">         
-        <h2>Technology</h2>
-        <div class="flex flex-col justify-start">
-            <p>I like exploring new technologies and keeping up with software development trends in my free time.</p>
-            <ul class="list-disc p-4 *:flex *:flex-row *:justify-between">
-                <li>
-                    <p>Docker</p>
-                    <p><b>Progress:</b> 40%</p>
-                </li>
-                <li>
-                    <p>Sequelize</p>
-                    <p><b>Progress:</b> 25%</p>
-                </li>
-            </ul>
+    <section class="bg-slate-100 dark:bg-muted dark:text-foreground">
+        <div class="max-w-3xl space-y-4">
+            <p class="text-sm uppercase tracking-[0.3em] text-slate-500 dark:text-muted-foreground">Hobbies</p>
+            <h1>What I spend time exploring outside of direct project work</h1>
+            <p>
+                I keep this page separate from About because these interests are part of how I build taste and
+                perspective, even when they are not directly tied to client work.
+            </p>
+        </div>
+    </section>
+
+    <section class="bg-white dark:bg-background">
+        <div class="grid gap-6 lg:grid-cols-2">
+            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-border dark:bg-card">
+                <h2>Technology rabbit holes</h2>
+                <p class="mt-3">I like exploring tools and systems that stretch me a bit beyond my default web stack.</p>
+                <ul class="mt-4 list-disc space-y-3 pl-5">
+                    <li>
+                        <span class="font-semibold">Docker</span>: a continuing area of practice whenever I want cleaner local environments and more realistic deployment thinking.
+                    </li>
+                    <li>
+                        <span class="font-semibold">Sequelize</span>: useful partly because it sharpens my sense of what a backend abstraction helps with and what it can hide too aggressively.
+                    </li>
+                    <li>
+                        <span class="font-semibold">Embedded tooling</span>: I have enjoyed learning more about PlatformIO, microcontrollers, and the mindset shift that comes with them.
+                    </li>
+                </ul>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-border dark:bg-card">
+                <h2>Non-software interests</h2>
+                <p class="mt-3">
+                    Axe throwing has become one of the clearest examples of the kind of challenge I enjoy: technique,
+                    repetition, feedback, and the slow process of getting something difficult to feel natural.
+                </p>
+                <p class="mt-3">
+                    That same pattern tends to show up in how I learn software too, which is part of why I keep this
+                    page around instead of flattening everything into a standard professional bio.
+                </p>
+            </div>
         </div>
     </section>
 </Layout>

@@ -1,6 +1,7 @@
 ---
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 import { Icon } from "astro-icon/components";
+import { PRIMARY_NAV } from "../lib/navigation";
 ---
 
 <header class="sticky top-0 z-10 w-full border-b border-blue-900/10 bg-blue-700 text-slate-100 shadow-sm dark:border-border dark:bg-card dark:text-card-foreground">
@@ -27,13 +28,9 @@ import { Icon } from "astro-icon/components";
 
         <MenuItems class="hidden lg:flex lg:flex-1 lg:justify-end">
           <ul class="fixed left-0 top-16 flex w-screen flex-col bg-blue-700 text-center dark:bg-card lg:static lg:w-auto lg:flex-row lg:items-center lg:justify-end lg:text-start">
-            <li><a class="nav-btn" href="/">Home</a></li>
-            <li><a class="nav-btn" href="/work">Work</a></li>
-            <!-- <li><a class="nav-btn" href="/services">Services</a></li> -->
-            <li><a class="nav-btn" href="/posts">Blog</a></li>
-            <li><a class="nav-btn" href="/about">About</a></li>
-            <li><a class="nav-btn" href="/resources">Resources</a></li>
-            <li><a class="nav-btn" href="/contact">Contact</a></li>
+            {PRIMARY_NAV.map((link) => (
+              <li><a class="nav-btn" href={link.href}>{link.label}</a></li>
+            ))}
             <li class="hidden lg:flex lg:items-center lg:pl-2">
               <button
                 type="button"

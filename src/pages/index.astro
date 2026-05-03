@@ -1,110 +1,208 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import risatech from '../images/risatech-welcome.png';
-import fab from '../images/fab.png';
 import { Image } from 'astro:assets';
 import ProjectOverlay from '../components/ProjectOverlay';
-import { SingleAccordion } from '@/components/SingleAccordion';
 import Lightbulb from '@/components/Lightbulb.astro';
+import { PROJECTS } from '../lib/projects';
+
+interface Post {
+	frontmatter: {
+		title: string;
+		pubDate: string;
+		description?: string;
+	};
+	url: string;
+}
+
+const featuredProjects = PROJECTS.filter((project) => project.homeFeatured);
+const latestPosts = Object.values(import.meta.glob<Post>('./posts/*.md', { eager: true }))
+	.sort((a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime())
+	.slice(0, 2);
+
+const formatDate = (dateValue: string) => {
+	const date = new Date(dateValue);
+
+	if (Number.isNaN(date.getTime())) {
+		return dateValue;
+	}
+
+	return date.toLocaleDateString('en-US', {
+		year: 'numeric',
+		month: 'short',
+		day: 'numeric',
+	});
+};
 ---
 
 <Layout title="Home">
-	<div class="flex flex-col items-center">
-		<section class="h-screen">
-			<h1 class="text-center fadeInDown">Jomkit Jujaroen</h1>
-
-			<div class="flex flex-col gap-y-4 pb-4 h-full">
-				
-				<div id="blurb" class="flex flex-col items-center space-y-4 p-8 fadeInDown delay-500">
-					<div class="w-1/4">
-						<Lightbulb />
-					</div>
-					
-					<h3 class="text-center italic">A <span class="font-bold">full-stack software engineer</span> with a global perspective</h3>
-					
-					<p>Thanks for visiting my website! I built it completely by myself, using Astro.js, React, and TailwindCSS. 
-					</p>
-					<p>I hope you find something interesting. I like to learn new things, and make awesome websites.</p>
+	<section class="hero-section relative overflow-hidden bg-blue-800 text-white dark:bg-card dark:text-card-foreground">
+		<div class="absolute inset-y-0 right-0 hidden w-1/3 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.16),transparent_58%)] lg:block"></div>
+		<div class="relative grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_14rem]">
+			<div class="space-y-6">
+				<p class="text-sm uppercase tracking-[0.3em] text-blue-100 dark:text-muted-foreground">Full-Stack Software Engineer</p>
+				<h1 class="fadeInDown">Jomkit Jujaroen</h1>
+				<p class="max-w-2xl text-lg text-blue-50 dark:text-card-foreground">
+					I build thoughtful product experiences across the stack, with a bias toward clear interfaces,
+					maintainable systems, and websites that feel intentional.
+				</p>
+				<p class="max-w-2xl text-base text-blue-100/90 dark:text-muted-foreground">
+					This portfolio is the best snapshot of how I think: real client work, shipped product contributions,
+					and the writing I use to sharpen my engineering judgment.
+				</p>
+				<div class="flex flex-wrap gap-3">
+					<a class="cta-primary" href="/work">See My Work</a>
+					<a class="cta-secondary" href="/contact">Get In Touch</a>
 				</div>
 			</div>
-		</section>
+			<div class="mx-auto w-36 lg:w-full">
+				<Lightbulb />
+			</div>
+		</div>
+	</section>
 
-		<div class="lg:space-y-2 lg:mb-8">
-			<section id="News" class="flex flex-col odd:bg-blue-800 odd:text-white even:bg-slate-300 dark:odd:bg-card dark:odd:text-card-foreground dark:even:bg-muted dark:even:text-foreground">
-				<h2>What's New</h2>
-				<p>The two main things I've been up to recently are open source and learning new skills and technologies.</p>
-				<div>
-					<SingleAccordion title="Open Source" expanded={true} client:load>
-						<div class="space-y-2">
-							<p>Recently I've been dabbling in open-source contributions, and having a whale of a time. Something I didn't realize was how much of a great opportunity it is to learn new technology and practice the software engineering workflow.</p>
-							<p>In this case I had to pick up enough <a class="underline hover:font-bold" href="https://angular.dev/">Angular</a> to start making contributions. Check out the project! It's an open-source idle game: <a class="hover:underline" href="https://glowriftduskhall.felfhenor.com/">Glowrift-Duskhall</a></p>
+	<section class="bg-slate-100 dark:bg-muted">
+		<div class="section-heading">
+			<p class="eyebrow">Featured Work</p>
+			<h2>Selected projects with real product and client impact</h2>
+			<p>
+				A few representative projects from product engineering and bespoke web work. The full portfolio lives
+				on the Work page.
+			</p>
+		</div>
+		<div class="grid gap-6 lg:grid-cols-2">
+			{featuredProjects.map((project) => (
+				<div class="space-y-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-border dark:bg-card">
+					{project.image && (
+						<ProjectOverlay
+							header={project.homeOverlayTitle ?? project.title}
+							footer={project.homeOverlayBody ?? project.summary}
+							url={project.externalUrl}
+							client:load
+						>
+							<Image src={project.image} alt={project.imageAlt ?? project.title} class="rounded-xl" />
+						</ProjectOverlay>
+					)}
+					<div class="space-y-3">
+						<div class="flex flex-col gap-1">
+							<p class="text-sm uppercase tracking-[0.2em] text-slate-500 dark:text-muted-foreground">{project.scope}</p>
+							<h3 class="font-semibold text-blue-800 dark:text-primary">{project.title}</h3>
+							<p class="text-sm text-slate-500 dark:text-muted-foreground">{project.role} | {project.period}</p>
 						</div>
-					</SingleAccordion>
-
-					<SingleAccordion title="Learning Skills" expanded={true} client:load>
-						<div class="space-y-2">
-							<p>I recently set up PlatformIO on VS Code for microcontroller development. It was a little rough, but I managed to power through and get it set up. Check out my <a href="/posts" class="underline">blog</a> if you're wondering why I chose that over the Arduino IDE, and if you're interested in my experience setting up PlatformIO.</p>
-							<p>Since I am a glutton for torture, I decided if I'm gonna start tinkering with microcontrollers again, I might as well learn C++. Yes that's right, C++ and Java more or less at the same time. I'll explain my philosophy on this another time, but I honestly don't think it's gonna be that much of a problem, and I think there's a lot to learn from both languages for a web developer, or any software engineer for that matter.</p>
-							<p>I've been learning Java through the University of Helsinki's Massive Open Online Course (MOOC), specifically their <a class="underline" href="https://java-programming.mooc.fi/" target="_blank" rel="noopener noreferrer">Java Programming</a> course!</p>
-							<p>Progress on Neovim has been study; although I'm nowhere near good enough to be developing in Neovim yet, I've been slowly learning how to better configure it for my own purposes. This means learning how to install language server plugins so that TypeScript linting and auto-suggestions work correctly. Maybe when I finally get good at managing Neovim plugins, I'll write up a guide on it.</p>
+						<p>{project.summary}</p>
+						<div class="flex flex-wrap gap-2">
+							{project.technologies.map((technology) => (
+								<span class="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700 dark:bg-background dark:text-muted-foreground">
+									{technology}
+								</span>
+							))}
 						</div>
-					</SingleAccordion>
-
-				</div>
-
-				<p>Check out some more personal goals of mine -> <a href="/about#goals">About Me</a></p>
-			</section>
-	
-			<section id="work" class="flex flex-col odd:bg-blue-800 odd:text-white even:bg-slate-300 dark:odd:bg-card dark:odd:text-card-foreground dark:even:bg-muted dark:even:text-foreground">
-				<h2>Things I've Worked On</h2>
-				<div class="space-y-2">
-					<p>I love working on different projects, from robust web applications for businesses to specialized portfolio websites for skilled craftsmen.</p>
-					<p>Check them out below!</p>
-					<p><a class="underline" href="/work">Learn More...</a></p>
-				</div>
-				<div class="grid lg:grid-cols-2 gap-x-12 gap-y-4">
-					<ProjectOverlay header='risatech.ai' footer="Full stack engineer responsible for pushing new, mission-critical features to our flagship product" url="https://risatech.ai/" client:load>
-						<Image src={risatech} alt="risatech.ai welcome page" />
-					</ProjectOverlay>
-					<ProjectOverlay header='foxallenbindery portfolio website' footer="Developed, designed, and currently maintaining the book binding website of Fox Allen Maasch" url="https://foxallenbindery.com/" client:load>
-						<Image src={fab} alt="foxallenbindery landing page" />
-					</ProjectOverlay>
-				</div>
-			</section>
-	
-			<section id="services" class="flex flex-col space-y-6 odd:bg-blue-800 odd:text-white even:bg-slate-300 dark:odd:bg-card dark:odd:text-card-foreground dark:even:bg-muted dark:even:text-foreground lg:py-12">
-				<h2>Services</h2>
-				<div class="lg:space-y-4">
-					<p>I build and maintain websites using the latest technologies, ensuring that they are fast, secure, and user-friendly.</p>
-	
-					<ul class="ml-8 list-disc">
-						<li>SEO Optimized</li>
-						<li>Fast Loading</li>
-						<li>Secure</li>
-					</ul>
-					
-					<p>Reach out to me at <span>j.jujaroen96@gmail.com</span> for web development comissions, project ideas, or other collaborations.</p>
-				</div>
-			</section>
-	
-			<section id="hobbies" class="flex flex-col odd:bg-blue-800 odd:text-white even:bg-slate-300 dark:odd:bg-card dark:odd:text-card-foreground dark:even:bg-muted dark:even:text-foreground">
-				<h2>Hobbies</h2>
-				<div class="space-y-4">
-					<p>In my free time I like keeping up with new software trends, networking with other professionals, and exploring new hobbies.</p>
-					<div>
-						<h3>Axe Throwing</h3>
-						<p>Axe throwing is one of those hobbies that I've grown passionate about. It exemplifies all the things I like about software engineering: it is impressive to watch a skilled practitioner throw their axe but even more exciting to experience it for yourself, learning all the skill and nuance that goes into perfecting the throw.</p>
 					</div>
 				</div>
-			</section>
+			))}
 		</div>
+		<a class="inline-flex w-fit rounded-full border border-blue-800 px-4 py-2 text-sm font-semibold text-blue-800 transition hover:bg-blue-800 hover:text-white dark:border-primary dark:text-primary dark:hover:bg-primary dark:hover:text-primary-foreground" href="/work">
+			View the full portfolio
+		</a>
+	</section>
 
-	</div>
+	<section class="bg-white dark:bg-background">
+		<div class="section-heading">
+			<p class="eyebrow">What I Do</p>
+			<h2>Build clear product experiences across UI, content, and implementation</h2>
+		</div>
+		<div class="grid gap-4 md:grid-cols-3">
+			<div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-border dark:bg-card">
+				<h3 class="font-semibold">Product-facing engineering</h3>
+				<p class="mt-2">
+					I like work that sits close to real users: features, flows, and interfaces that need to hold up
+					under actual product pressure.
+				</p>
+			</div>
+			<div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-border dark:bg-card">
+				<h3 class="font-semibold">Intentional front-end structure</h3>
+				<p class="mt-2">
+					I care about hierarchy, maintainability, and choosing abstractions that make future changes easier
+					instead of noisier.
+				</p>
+			</div>
+			<div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-border dark:bg-card">
+				<h3 class="font-semibold">Curiosity as leverage</h3>
+				<p class="mt-2">
+					My writing and side projects usually start with a technical question and turn into a sharper point
+					of view about tools, systems, and engineering tradeoffs.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-100 dark:bg-muted">
+		<div class="section-heading">
+			<p class="eyebrow">Current Focus</p>
+			<h2>Recent writing and what I am learning right now</h2>
+			<p>
+				I use the blog as a place to think through engineering decisions, learning experiments, and tool
+				tradeoffs.
+			</p>
+		</div>
+		<div class="grid gap-4 lg:grid-cols-2">
+			{latestPosts.map((post) => (
+				<a class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-border dark:bg-card" href={post.url}>
+					<p class="text-sm uppercase tracking-[0.2em] text-slate-500 dark:text-muted-foreground">{formatDate(post.frontmatter.pubDate)}</p>
+					<h3 class="mt-3 font-semibold text-blue-800 dark:text-primary">{post.frontmatter.title}</h3>
+					<p class="mt-2 text-slate-700 dark:text-card-foreground">{post.frontmatter.description}</p>
+				</a>
+			))}
+		</div>
+		<a class="inline-flex w-fit rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-blue-800 hover:text-blue-800 dark:border-border dark:text-card-foreground dark:hover:border-primary dark:hover:text-primary" href="/posts">
+			Read more writing
+		</a>
+	</section>
+
+	<section class="bg-white dark:bg-background">
+		<div class="section-heading">
+			<p class="eyebrow">About</p>
+			<h2>A little more context behind how I work</h2>
+		</div>
+		<div class="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
+			<div class="space-y-4">
+				<p>
+					I am a software developer based in Maine with a background that crosses engineering, design-minded
+					web work, and a habit of learning in public.
+				</p>
+				<p>
+					My broader interests are part of the point, not a distraction. I like building taste and judgment by
+					exploring adjacent disciplines, which is also why Hobbies stays as its own secondary page.
+				</p>
+			</div>
+			<div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-border dark:bg-card">
+				<h3 class="font-semibold">Continue exploring</h3>
+				<div class="mt-4 flex flex-col gap-3">
+					<a class="text-blue-800 underline underline-offset-4 dark:text-primary" href="/about">Read the full About page</a>
+					<a class="text-blue-800 underline underline-offset-4 dark:text-primary" href="/about/hobbies">See the Hobbies page</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-blue-800 text-white dark:bg-card dark:text-card-foreground">
+		<div class="section-heading">
+			<p class="eyebrow text-blue-100 dark:text-muted-foreground">Contact</p>
+			<h2>Looking for a builder who cares about the details</h2>
+			<p class="text-blue-100 dark:text-muted-foreground">
+				I am open to conversations about product features, portfolio websites, and collaboration where the
+				work benefits from strong implementation judgment and a careful front-end eye.
+			</p>
+		</div>
+		<div class="flex flex-wrap gap-3">
+			<a class="cta-primary-inverse" href="/contact">Start the conversation</a>
+			<a class="cta-secondary-inverse" href="mailto:j.jujaroen96@gmail.com">Email me directly</a>
+		</div>
+	</section>
 </Layout>
 
 <style>
-	a:hover {
-		@apply  font-semibold underline;
+	.hero-section {
+		@apply min-h-[32rem];
 	}
 
 	@keyframes fadeInDown {
@@ -121,5 +219,28 @@ import Lightbulb from '@/components/Lightbulb.astro';
 	.fadeInDown {
 		animation: 1.5s fadeInDown;
 	}
-	
+
+	.section-heading {
+		@apply max-w-3xl space-y-3;
+	}
+
+	.eyebrow {
+		@apply text-sm uppercase tracking-[0.3em] text-slate-500 dark:text-muted-foreground;
+	}
+
+	.cta-primary {
+		@apply inline-flex rounded-full bg-white px-5 py-3 text-sm font-semibold text-blue-800 transition hover:bg-blue-100;
+	}
+
+	.cta-secondary {
+		@apply inline-flex rounded-full border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10;
+	}
+
+	.cta-primary-inverse {
+		@apply inline-flex rounded-full bg-white px-5 py-3 text-sm font-semibold text-blue-800 transition hover:bg-blue-100 dark:bg-primary dark:text-primary-foreground dark:hover:bg-accent;
+	}
+
+	.cta-secondary-inverse {
+		@apply inline-flex rounded-full border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10 dark:border-border dark:text-card-foreground dark:hover:bg-background;
+	}
 </style>
