@@ -223,6 +223,7 @@ To prevent duplication drift, V2 uses these content ownership rules:
 - `/contact` owns collaboration framing and call-to-action language
 - if service positioning appears on Home or Contact, it must be short supporting copy and must not behave like a separate undeclared services product surface
 - if project cards are reused across pages, the underlying project metadata must live in one shared data source such as `src/lib/projects.ts` or `src/data/projects.ts`
+- the shared project data source may also own optional homepage-specific fields such as featured status, featured ordering, and short overlay copy, as long as `/work` remains the canonical project detail surface
 
 ## Design system changes
 
@@ -291,6 +292,8 @@ Recommended section order:
 5. CTA to contact
 
 `/work` is the canonical project page. Shared project data should be authored once and consumed here first, with Home reusing a featured subset.
+
+When a project needs slightly more proof on `/work` without becoming a full case-study route, V2 may use compact highlights sourced from the same shared project data entry.
 
 ### About
 
@@ -410,6 +413,7 @@ The site can be considered at V2 when:
 - [x] Tighten About and Contact so they support conversion
 - [x] Move project metadata into one shared content source consumed by Home and Work
 - [ ] Update written content across Home, Work, About, Contact, Resources, and Hobbies so the copy matches the new V2 structure and tone
+- [x] Add shared project support for richer proof content such as project highlights, external links, and optional project imagery where it materially improves Work and featured project presentation
 - [x] Unpublish Services unless it is fully ready as a live route
 - [x] Strengthen Hobbies and Resources as intentional secondary destinations
 - [x] Introduce only the minimum reusable section and card patterns needed for cleaner page composition
@@ -429,6 +433,7 @@ V2 is complete only when all of the following are true:
 - `/resources` remains live only as a clearly secondary route and is not shown in the primary header navigation
 - the homepage no longer contains full standalone Hobbies or Services sections that compete with the professional funnel
 - project summaries shown on the homepage are derived from the same canonical project data source as `/work`
+- homepage featured project ordering and overlay copy are derived from the same canonical project data source as `/work`
 - the written content on Home, Work, About, Contact, Resources, and Hobbies has been reviewed and updated so it matches the final V2 hierarchy, tone, and page purpose
 - page titles, descriptions, heading structure, and internal linking have been reviewed and updated to support V2 SEO goals
 - the live V2 pages meet the intended accessibility bar for semantic structure, keyboard access, color contrast, and non-visual clarity
